@@ -85,7 +85,17 @@ nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(13,27,42,.97);ba
 .pcard{background:var(--surface);border:1px solid rgba(201,168,76,.12);border-radius:18px;overflow:hidden;transition:all .4s;position:relative;}
 .pcard:hover{transform:translateY(-5px);border-color:rgba(201,168,76,.35);box-shadow:0 20px 40px rgba(0,0,0,.3);}
 .pcard-top{background:linear-gradient(135deg,var(--surface2),#243450);padding:28px;text-align:center;position:relative;}
-.pcard-avatar{width:76px;height:76px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 12px;border:3px solid rgba(201,168,76,.3);}
+.pcard-avatar{width:76px;height:76px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 12px;border:3px solid rgba(201,168,76,.3);overflow:hidden;}
+.pcard-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.photo-upload-area{display:flex;flex-direction:column;align-items:center;gap:14px;padding:20px;background:rgba(201,168,76,.04);border:2px dashed rgba(201,168,76,.25);border-radius:14px;cursor:pointer;transition:all .3s;margin-bottom:4px;}
+.photo-upload-area:hover{border-color:var(--gold);background:rgba(201,168,76,.08);}
+.photo-preview{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));display:flex;align-items:center;justify-content:center;font-size:38px;overflow:hidden;border:3px solid rgba(201,168,76,.4);}
+.photo-preview img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.photo-upload-btn{padding:8px 20px;border:1px solid rgba(201,168,76,.4);border-radius:8px;background:transparent;color:var(--gold);font-family:'Tajawal',sans-serif;font-size:13px;cursor:pointer;transition:all .3s;}
+.photo-upload-btn:hover{background:rgba(201,168,76,.1);}
+.dash-av-wrap{position:relative;display:inline-block;cursor:pointer;}
+.dash-av-wrap:hover .dash-av-edit{opacity:1;}
+.dash-av-edit{position:absolute;inset:0;border-radius:50%;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;transition:opacity .3s;}
 .pcard-name{font-size:17px;font-weight:700;margin-bottom:3px;}
 .pcard-meta{font-size:12px;color:var(--muted);}
 .badge-verified{position:absolute;top:14px;left:14px;background:rgba(91,158,108,.2);border:1px solid var(--green);color:var(--green);border-radius:50px;padding:3px 10px;font-size:11px;font-weight:700;}
@@ -443,17 +453,146 @@ footer{border-top:1px solid rgba(201,168,76,.12);padding:44px 0 20px;text-align:
   <div class="container">
     <div class="footer-logo">🌙 نِكَاح</div>
     <p class="footer-ayah">﴿ وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</p>
-    <div class="footer-links"><a onclick="sp('home')">الرئيسية</a><a href="#">من نحن</a><a href="#">الخصوصية</a><a href="#">الشروط</a><a href="#">اتصل بنا</a></div>
+    <div class="footer-links"><a onclick="sp('home')">الرئيسية</a><a onclick="sp('privacy')">سياسة الخصوصية</a><a onclick="sp('terms')">شروط الاستخدام</a><a onclick="om('contact')">اتصل بنا</a></div>
     <p class="footer-copy">جميع الحقوق محفوظة © 2025 منصة نكاح للزواج الإسلامي</p>
   </div>
 </footer>
 </div><!-- /page-home -->
 
+<!-- ══════ PRIVACY PAGE ══════ -->
+<div id="page-privacy" class="page">
+  <div style="max-width:780px;margin:0 auto;padding:100px 20px 60px;">
+    <div style="text-align:center;margin-bottom:44px;">
+      <div class="orn"><span class="orn-icon">🛡️</span></div>
+      <p class="s-label">قانوني</p>
+      <h1 style="font-family:'Amiri',serif;font-size:clamp(28px,4vw,44px);margin-bottom:12px;">سياسة الخصوصية</h1>
+      <p style="color:var(--muted);font-size:14px;">آخر تحديث: يناير 2025</p>
+    </div>
+    <div style="background:var(--surface);border:1px solid rgba(201,168,76,.12);border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:32px;font-size:15px;line-height:2;">
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">١. المقدمة</h2>
+        <p style="color:var(--muted);">تلتزم منصة <strong style="color:var(--text);">نِكَاح</strong> بحماية خصوصية مستخدميها وفق أحكام الشريعة الإسلامية ومتطلبات قوانين حماية البيانات. تُوضّح هذه السياسة كيفية جمع معلوماتك واستخدامها وحمايتها.</p>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٢. البيانات التي نجمعها</h2>
+        <p style="color:var(--muted);margin-bottom:10px;">عند التسجيل وإنشاء ملفك الشخصي نجمع:</p>
+        <ul style="color:var(--muted);padding-right:20px;display:flex;flex-direction:column;gap:6px;">
+          <li>الاسم (مختصراً فقط للخصوصية)</li>
+          <li>البريد الإلكتروني (لا يُعرض للأعضاء الآخرين)</li>
+          <li>العمر والجنس والدولة والمدينة</li>
+          <li>الحالة الاجتماعية والمستوى التعليمي والمهنة</li>
+          <li>النبذة الشخصية ومواصفات الشريك المطلوب</li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٣. كيف نستخدم بياناتك</h2>
+        <ul style="color:var(--muted);padding-right:20px;display:flex;flex-direction:column;gap:6px;">
+          <li>عرض ملفك للأعضاء المسجّلين بعد اعتماده شرعياً</li>
+          <li>تمكين التواصل المحترم تحت إشراف المحكّم الشرعي</li>
+          <li>إدارة حسابك وإشعارك بحالة ملفك</li>
+          <li>تحسين خدمات المنصة وتجربة المستخدم</li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٤. حماية البيانات</h2>
+        <p style="color:var(--muted);">نستخدم خدمات <strong style="color:var(--text);">Firebase (Google)</strong> لتخزين بياناتك بتشفير كامل. لا يمكن لأي عضو الاطلاع على بريدك الإلكتروني. يظهر ملفك فقط بعد مراجعة واعتماد المشرف الشرعي.</p>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٥. مشاركة البيانات مع أطراف ثالثة</h2>
+        <p style="color:var(--muted);"><strong style="color:var(--red);">لا نبيع بياناتك ولا نشاركها</strong> مع أي جهة تجارية أو إعلانية. البيانات تُستخدم حصرياً لتشغيل المنصة. الاستثناء الوحيد هو ما تقتضيه متطلبات قانونية رسمية.</p>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٦. حقوقك</h2>
+        <ul style="color:var(--muted);padding-right:20px;display:flex;flex-direction:column;gap:6px;">
+          <li>الحق في الاطلاع على بياناتك المخزّنة في أي وقت</li>
+          <li>الحق في تعديل معلوماتك من خلال صفحة تعديل الملف</li>
+          <li>الحق في طلب حذف حسابك وجميع بياناتك نهائياً</li>
+          <li>الحق في الاعتراض على أي معالجة لبياناتك</li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٧. ملفات تعريف الارتباط</h2>
+        <p style="color:var(--muted);">نستخدم ملفات تعريف الارتباط الضرورية فقط للحفاظ على جلسة تسجيل دخولك. لا نستخدم ملفات تتبع إعلانية.</p>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٨. التواصل معنا</h2>
+        <p style="color:var(--muted);">لأي استفسار أو طلب حذف بيانات، تواصل معنا عبر البريد الإلكتروني الرسمي. سنرد خلال 48 ساعة بإذن الله.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <button class="btn-ghost" onclick="sp('home')">← العودة للرئيسية</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TERMS PAGE ══════ -->
+<div id="page-terms" class="page">
+  <div style="max-width:780px;margin:0 auto;padding:100px 20px 60px;">
+    <div style="text-align:center;margin-bottom:44px;">
+      <div class="orn"><span class="orn-icon">📜</span></div>
+      <p class="s-label">قانوني</p>
+      <h1 style="font-family:'Amiri',serif;font-size:clamp(28px,4vw,44px);margin-bottom:12px;">شروط الاستخدام</h1>
+      <p style="color:var(--muted);font-size:14px;">آخر تحديث: يناير 2025</p>
+    </div>
+    <div style="background:var(--surface);border:1px solid rgba(201,168,76,.12);border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:32px;font-size:15px;line-height:2;">
+      <div style="background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.25);border-radius:12px;padding:20px;">
+        <p style="color:var(--gold-light);font-family:'Amiri',serif;font-size:18px;text-align:center;">﴿ يَا أَيُّهَا الَّذِينَ آمَنُوا أَوْفُوا بِالْعُقُودِ ﴾ — سورة المائدة، الآية ١</p>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">١. القبول والالتزام</h2>
+        <p style="color:var(--muted);">باستخدامك منصة <strong style="color:var(--text);">نِكَاح</strong> فإنك تقرّ بقراءة هذه الشروط وموافقتك الكاملة عليها. المنصة مخصصة للمسلمين البالغين الراغبين في الزواج الحلال.</p>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٢. شروط العضوية</h2>
+        <ul style="color:var(--muted);padding-right:20px;display:flex;flex-direction:column;gap:6px;">
+          <li>يجب أن يكون عمرك 18 سنة أو أكثر</li>
+          <li>يجب أن تكون مسلماً / مسلمة</li>
+          <li>يُشترط أن تكون المعلومات المقدّمة صحيحة وصادقة</li>
+          <li>يُمنع تسجيل أكثر من حساب واحد لنفس الشخص</li>
+          <li>يُمنع التسجيل نيابةً عن شخص آخر دون إذنه الصريح</li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٣. آداب الاستخدام الشرعي</h2>
+        <p style="color:var(--muted);margin-bottom:10px;">التزاماً بآداب الإسلام، يُحظر تماماً:</p>
+        <ul style="color:var(--muted);padding-right:20px;display:flex;flex-direction:column;gap:6px;">
+          <li>أي تواصل غير لائق أو مخالف للآداب الإسلامية</li>
+          <li>نشر صور أو محتوى غير محتشم</li>
+          <li>التحرش أو الإيذاء اللفظي بأي شكل</li>
+          <li>استخدام المنصة لأغراض غير الزواج الشرعي</li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٤. دور المشرف الشرعي</h2>
+        <p style="color:var(--muted);">تخضع جميع الملفات لمراجعة المشرف الشرعي قبل نشرها. للمشرف الحق في رفض أي ملف دون إبداء أسباب مفصّلة. قراراته نهائية وتهدف لصون حرمة المنصة وأعضائها.</p>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٥. إخلاء المسؤولية</h2>
+        <p style="color:var(--muted);">منصة نكاح وسيلة تعارف شرعية فحسب. لا تتحمل المنصة مسؤولية نتائج التعارف أو الزواج أو أي خلافات تنشأ بين الأعضاء. كل عضو مسؤول مسؤولية كاملة عن قراراته الشخصية.</p>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٦. إنهاء العضوية</h2>
+        <p style="color:var(--muted);">يحق للمنصة إيقاف أو حذف أي حساب يخالف هذه الشروط دون إشعار مسبق. يحق للعضو طلب حذف حسابه في أي وقت عبر التواصل مع الإدارة.</p>
+      </div>
+      <div>
+        <h2 style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:12px;">٧. التعديلات</h2>
+        <p style="color:var(--muted);">تحتفظ المنصة بحق تعديل هذه الشروط في أي وقت. استمرارك في استخدام المنصة بعد التعديل يُعدّ قبولاً للشروط الجديدة.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <button class="btn-ghost" onclick="sp('home')">← العودة للرئيسية</button>
+    </div>
+  </div>
+</div>
+
 <!-- ══════ DASHBOARD PAGE ══════ -->
 <div id="page-dashboard" class="page">
   <div class="dash-wrap">
     <div class="dash-head">
-      <div class="dash-av" id="dav">👤</div>
+      <div class="dash-av-wrap" onclick="sp('edit-profile')" title="تغيير الصورة">
+        <div class="dash-av" id="dav">👤</div>
+        <div class="dash-av-edit">📷</div>
+      </div>
       <div class="dash-info">
         <h2 id="d-name">مرحباً</h2>
         <p id="d-email"></p>
@@ -490,6 +629,18 @@ footer{border-top:1px solid rgba(201,168,76,.12);padding:44px 0 20px;text-align:
     <h1 style="font-family:'Amiri',serif;font-size:30px;color:var(--gold);margin-bottom:6px;">✏️ تعديل ملفي</h1>
     <p style="color:var(--muted);margin-bottom:24px;">أكمل ملفك ليظهر بعد اعتماد المشرف الشرعي</p>
     <div class="edit-form">
+      <div class="eg eg-full" style="margin-bottom:20px;">
+        <label>الصورة الشخصية</label>
+        <div class="photo-upload-area" onclick="document.getElementById('ep-photo-input').click()">
+          <div class="photo-preview" id="ep-photo-preview">👤</div>
+          <div style="text-align:center;">
+            <button class="photo-upload-btn" type="button">📷 اختر صورة</button>
+            <p style="font-size:11px;color:var(--muted);margin-top:6px;">JPG أو PNG · حجم أقصى 5MB</p>
+            <p id="ep-photo-status" style="font-size:12px;color:var(--gold);margin-top:4px;min-height:18px;"></p>
+          </div>
+        </div>
+        <input type="file" id="ep-photo-input" accept="image/*" style="display:none" onchange="handlePhotoSelect(this)">
+      </div>
       <div class="edit-grid">
         <div class="eg"><label>الاسم (يظهر مختصراً)</label><input class="finput" id="ep-name" placeholder="مثال: عبدالرحمن م."></div>
         <div class="eg"><label>العمر</label><input class="finput" type="number" id="ep-age" min="18" max="70"></div>
@@ -673,6 +824,9 @@ function renderProfiles() {
       : p.status_social === 'أرمل / أرملة' ? '<span class="badge-status badge-armil">أرمل/ة</span>'
       : '<span class="badge-status badge-azab">أعزب/ة</span>';
     const emoji = p.gender === 'female' ? '👩' : '👨';
+    const avatarHtml = p.photoUrl
+      ? `<div class="pcard-avatar"><img src="${p.photoUrl}" alt="صورة" loading="lazy"></div>`
+      : `<div class="pcard-avatar">${emoji}</div>`;
     const tags = (p.tags||[]).map(t=>`<span class="ptag">${t}</span>`).join('');
 
     if (isLoggedIn) {
@@ -680,7 +834,7 @@ function renderProfiles() {
         <div class="pcard-top">
           <span class="badge-verified">✓ موثّق</span>
           ${socialBadge}
-          <div class="pcard-avatar">${emoji}</div>
+          ${avatarHtml}
           <div class="pcard-name">${p.name||'عضو'}</div>
           <div class="pcard-meta">${p.age?p.age+' عاماً':''} ${p.city?'· '+p.city:''} ${p.country?'· '+p.country:''}</div>
         </div>
@@ -695,7 +849,7 @@ function renderProfiles() {
         <div class="pcard-top">
           <span class="badge-verified">✓ موثّق</span>
           ${socialBadge}
-          <div class="pcard-avatar">${emoji}</div>
+          ${avatarHtml}
           <div class="pcard-name">${p.name||'عضو'}</div>
           <div class="pcard-meta">${p.age?p.age+' عاماً':''} ${p.country?'· '+p.country:''}</div>
         </div>
@@ -908,7 +1062,13 @@ function loadDash(profile, user) {
     return;
   }
   document.getElementById('d-name').textContent = profile.name||'عضو كريم';
-  document.getElementById('dav').textContent = profile.gender==='female'?'👩':'👨';
+  const davEl = document.getElementById('dav');
+  if (profile.photoUrl) {
+    davEl.innerHTML = `<img src="${profile.photoUrl}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" alt="صورة">`;
+    davEl.style.padding = '0';
+  } else {
+    davEl.textContent = profile.gender==='female'?'👩':'👨';
+  }
   document.getElementById('dc-views').textContent = profile.views||0;
   document.getElementById('dc-int').textContent = profile.interests||0;
   document.getElementById('dc-sent').textContent = profile.sent||0;
@@ -946,9 +1106,11 @@ window.saveProfile = async function() {
   if (!name||!age||!gender) { toast('الاسم والعمر والجنس مطلوبة','err'); return; }
   try {
     const data={name,age:+age,gender,city,country,job,edu,status_social,bio,tags,email:user.email,status:window._profile?.status||'pending',updatedAt:serverTimestamp()};
+    if (window._pendingPhotoUrl) data.photoUrl = window._pendingPhotoUrl;
     if (!window._profile) { data.createdAt=serverTimestamp(); data.views=0; data.interests=0; data.sent=0; }
     await setDoc(doc(db,'users',user.uid),data,{merge:true});
     window._profile={...window._profile,...data};
+    window._pendingPhotoUrl = null;
     toast('تم حفظ الملف ✅','ok');
     loadDash(window._profile,user);
     sp('dashboard');
@@ -965,6 +1127,11 @@ window.loadEditForm = function() {
   document.getElementById('ep-social').value=p.status_social||'';
   document.getElementById('ep-bio').value=p.bio||'';
   document.getElementById('ep-tags').value=(p.tags||[]).join(', ');
+  // show existing photo
+  const prev = document.getElementById('ep-photo-preview');
+  if (prev && p.photoUrl) {
+    prev.innerHTML = `<img src="${p.photoUrl}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" alt="صورة">`;
+  }
 };
 
 // ── REGISTER ──
@@ -1100,6 +1267,55 @@ function toast(msg,type=''){
   setTimeout(()=>t.classList.remove('show'),3200);
 }
 window.toast=toast;
+
+// ── CLOUDINARY PHOTO UPLOAD ──
+const CLOUD_NAME = 'ddsfdyjek';
+const UPLOAD_PRESET = 'nikah_uploads';
+
+window.handlePhotoSelect = async function(input) {
+  const file = input.files[0];
+  if (!file) return;
+
+  // validate
+  if (!file.type.startsWith('image/')) { toast('يرجى اختيار صورة صالحة','err'); return; }
+  if (file.size > 5 * 1024 * 1024) { toast('حجم الصورة يجب أن يكون أقل من 5MB','err'); return; }
+
+  const status = document.getElementById('ep-photo-status');
+  const preview = document.getElementById('ep-photo-preview');
+
+  // show local preview immediately
+  const reader = new FileReader();
+  reader.onload = e => {
+    preview.innerHTML = `<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" alt="معاينة">`;
+  };
+  reader.readAsDataURL(file);
+
+  // upload to Cloudinary
+  status.textContent = '⏳ جارٍ رفع الصورة...';
+  try {
+    const fd = new FormData();
+    fd.append('file', file);
+    fd.append('upload_preset', UPLOAD_PRESET);
+    fd.append('folder', 'nikah');
+
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+      method: 'POST',
+      body: fd
+    });
+    const data = await res.json();
+    if (data.secure_url) {
+      window._pendingPhotoUrl = data.secure_url;
+      status.textContent = '✅ تم رفع الصورة — اضغط حفظ الملف';
+      status.style.color = 'var(--green)';
+    } else {
+      throw new Error(data.error?.message || 'فشل الرفع');
+    }
+  } catch(e) {
+    status.textContent = '❌ فشل رفع الصورة، حاول مجدداً';
+    status.style.color = 'var(--red)';
+    window._pendingPhotoUrl = null;
+  }
+};
 </script>
 </body>
 </html>
