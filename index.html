@@ -3,586 +3,1012 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="مِرصاد — منصة إخبارية متخصصة في أخبار الجريمة والحرب والشؤون الأمنية">
-<title>مِرصاد | أخبار الجريمة والحرب</title>
-<!-- Adsterra Social Bar -->
-<script src="https://pl29077058.profitablecpmratenetwork.com/17/57/9f/17579ffe0ff5055b26e318f3ce838eb5.js"></script>
+<title>نكاح - منصة الزواج الإسلامي</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#0a0a0b; --bg2:#111114; --bg3:#18181d;
-  --red:#e5251a; --red2:#ff3b2f;
-  --text:#f0f0f0; --text2:#c8c8c8; --muted:#777;
-  --border:rgba(255,255,255,0.07);
-  --card:#13131a;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8CC80;
+    --gold-dark: #9A7830;
+    --deep: #0D1B2A;
+    --deep2: #162032;
+    --surface: #1A2840;
+    --surface2: #1E2E48;
+    --text: #F0E8D5;
+    --text-muted: #A89878;
+    --accent: #4A8FA8;
+    --green: #5B9E6C;
+    --red: #E05C5C;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Tajawal',sans-serif; background:var(--deep); color:var(--text); min-height:100vh; overflow-x:hidden; }
+  body::before {
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Cpath d='M30 0l8.66 5v10L30 20l-8.66-5V5L30 0zm0 40l8.66 5v10L30 60l-8.66-5V45L30 40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .container { max-width:1200px; margin:0 auto; padding:0 20px; position:relative; z-index:1; }
 
-/* ── HEADER ── */
-header{position:sticky;top:0;z-index:200;background:rgba(10,10,11,.97);backdrop-filter:blur(16px);border-bottom:2px solid var(--red);}
-.hdr{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:0 16px;height:56px;}
-.logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
-.logo-hex{width:34px;height:34px;background:var(--red);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-size:15px;animation:hexPulse 2.5s infinite;}
-@keyframes hexPulse{0%,100%{box-shadow:0 0 0 0 rgba(229,37,26,.5)}50%{box-shadow:0 0 0 8px rgba(229,37,26,0)}}
-.logo-name{font-family:'Tajawal',sans-serif;font-weight:900;font-size:22px;letter-spacing:-1px;}
-.logo-name em{color:var(--red);font-style:normal;}
+  /* ── NAV ── */
+  nav {
+    position:fixed; top:0; width:100%; z-index:100;
+    background:rgba(13,27,42,0.97); backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(201,168,76,0.2);
+    padding:0 40px; height:70px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-logo { font-family:'Amiri',serif; font-size:28px; color:var(--gold); display:flex; align-items:center; gap:10px; text-decoration:none; cursor:pointer; }
+  .nav-links { display:flex; gap:30px; list-style:none; }
+  .nav-links a { color:var(--text-muted); text-decoration:none; font-size:15px; font-weight:500; transition:color .3s; cursor:pointer; }
+  .nav-links a:hover { color:var(--gold); }
+  .nav-btns { display:flex; gap:12px; align-items:center; }
+  #nav-user-area { display:flex; gap:12px; align-items:center; }
 
-/* TICKER */
-.ticker{flex:1;overflow:hidden;background:rgba(229,37,26,.06);border:1px solid rgba(229,37,26,.15);border-radius:4px;height:30px;position:relative;min-width:0;}
-.ticker-tag{position:absolute;right:0;top:0;bottom:0;background:var(--red);padding:0 10px;display:flex;align-items:center;font-size:10px;font-weight:800;letter-spacing:1.5px;z-index:2;white-space:nowrap;}
-.ticker-inner{overflow:hidden;height:100%;padding-right:62px;}
-.ticker-run{display:flex;align-items:center;height:100%;animation:tickRun 40s linear infinite;white-space:nowrap;}
-.ticker-run span{font-size:11.5px;color:var(--muted);margin-left:44px;}
-.ticker-run span::before{content:'● ';color:var(--red);font-size:8px;}
-@keyframes tickRun{from{transform:translateX(0)}to{transform:translateX(55%)}}
+  /* ── BUTTONS ── */
+  .btn-ghost { padding:9px 22px; border:1px solid rgba(201,168,76,0.4); border-radius:8px; background:transparent; color:var(--gold); font-family:'Tajawal',sans-serif; font-size:14px; cursor:pointer; transition:all .3s; }
+  .btn-ghost:hover { background:rgba(201,168,76,0.1); border-color:var(--gold); }
+  .btn-gold { padding:9px 22px; border:none; border-radius:8px; background:linear-gradient(135deg,var(--gold),var(--gold-dark)); color:var(--deep); font-family:'Tajawal',sans-serif; font-size:14px; font-weight:700; cursor:pointer; transition:all .3s; box-shadow:0 4px 15px rgba(201,168,76,0.3); }
+  .btn-gold:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,168,76,0.4); }
+  .btn-lg { padding:16px 40px; font-size:17px; border-radius:12px; font-weight:700; font-family:'Tajawal',sans-serif; }
+  .btn-danger { padding:8px 18px; border:1px solid var(--red); border-radius:8px; background:transparent; color:var(--red); font-family:'Tajawal',sans-serif; font-size:13px; cursor:pointer; transition:all .3s; }
+  .btn-danger:hover { background:rgba(224,92,92,0.1); }
+  .btn-sm { padding:7px 16px; font-size:13px; border-radius:7px; }
 
-.live{display:flex;align-items:center;gap:4px;background:rgba(229,37,26,.1);border:1px solid rgba(229,37,26,.25);padding:4px 11px;border-radius:20px;font-size:10px;font-weight:800;color:var(--red);flex-shrink:0;letter-spacing:.5px;}
-.live-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1s infinite;}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+  /* ── PAGES ── */
+  .page { display:none; min-height:100vh; padding-top:70px; }
+  .page.active { display:block; }
 
-.lang-sel{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:5px 9px;border-radius:7px;font-family:'Cairo',sans-serif;font-size:11px;cursor:pointer;outline:none;flex-shrink:0;}
+  /* ── HERO ── */
+  .hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:100px 20px 60px; position:relative; }
+  .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.3); border-radius:50px; padding:6px 20px; font-size:14px; color:var(--gold-light); margin-bottom:32px; animation:fadeDown .8s ease both; }
+  .hero-ayah { font-family:'Amiri',serif; font-size:clamp(18px,3vw,26px); color:var(--gold-light); line-height:2; max-width:700px; margin-bottom:12px; animation:fadeDown .9s ease .1s both; }
+  .hero-ayah-ref { font-size:13px; color:var(--text-muted); margin-bottom:44px; animation:fadeDown 1s ease .2s both; }
+  .hero-title { font-family:'Amiri',serif; font-size:clamp(42px,7vw,80px); font-weight:700; line-height:1.2; margin-bottom:20px; animation:fadeDown 1s ease .3s both; }
+  .hero-title span { color:var(--gold); }
+  .hero-sub { font-size:clamp(16px,2vw,20px); color:var(--text-muted); max-width:560px; line-height:1.8; margin-bottom:48px; animation:fadeDown 1s ease .4s both; }
+  .hero-btns { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; animation:fadeDown 1s ease .5s both; }
+  .hero-stats { display:flex; gap:48px; margin-top:72px; animation:fadeDown 1s ease .6s both; }
+  .stat { text-align:center; }
+  .stat-num { font-family:'Amiri',serif; font-size:36px; color:var(--gold); font-weight:700; }
+  .stat-label { font-size:13px; color:var(--text-muted); margin-top:4px; }
 
-/* ── CATS NAV ── */
-.cats{background:var(--bg2);border-bottom:1px solid var(--border);}
-.cats-inner{max-width:1280px;margin:0 auto;display:flex;gap:4px;padding:9px 16px;overflow-x:auto;scrollbar-width:none;}
-.cats-inner::-webkit-scrollbar{display:none;}
-.cat{display:flex;align-items:center;gap:5px;padding:6px 15px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'Cairo',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:.18s;white-space:nowrap;flex-shrink:0;}
-.cat:hover{color:var(--text);border-color:rgba(255,255,255,.18);}
-.cat.on{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 0 18px rgba(229,37,26,.3);}
+  /* ── ORNAMENT ── */
+  .ornament { display:flex; align-items:center; gap:16px; margin:20px 0; }
+  .ornament::before,.ornament::after { content:''; flex:1; height:1px; background:linear-gradient(to var(--side,right),transparent,rgba(201,168,76,0.4)); }
+  .ornament::after { --side:left; }
+  .ornament-icon { color:var(--gold); font-size:18px; }
 
-/* ── MAIN WRAP ── */
-.wrap{max-width:1280px;margin:0 auto;padding:20px 16px 48px;}
+  /* ── SECTIONS ── */
+  .section { padding:90px 0; }
+  .section-label { font-size:13px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:12px; }
+  .section-title { font-family:'Amiri',serif; font-size:clamp(30px,4vw,48px); line-height:1.3; margin-bottom:16px; }
+  .section-sub { font-size:16px; color:var(--text-muted); max-width:550px; line-height:1.8; }
 
-/* ── TOOLBAR ── */
-.toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
-.sec-title{font-family:'Tajawal',sans-serif;font-weight:900;font-size:18px;}
-.sec-line{flex:1;height:1px;background:var(--border);min-width:16px;}
-.sec-count{background:var(--bg3);border:1px solid var(--border);padding:2px 9px;border-radius:20px;font-size:10px;color:var(--muted);}
-.srch{position:relative;}
-.srch input{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:6px 32px 6px 10px;border-radius:7px;font-family:'Cairo',sans-serif;font-size:12px;width:200px;transition:.2s;outline:none;}
-.srch input:focus{border-color:rgba(229,37,26,.4);width:240px;}
-.srch input::placeholder{color:var(--muted);}
-.srch-ico{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:12px;pointer-events:none;}
-.ref-btn{background:var(--bg3);border:1px solid var(--border);color:var(--muted);padding:6px 13px;border-radius:7px;font-family:'Cairo',sans-serif;font-size:11px;cursor:pointer;display:flex;align-items:center;gap:4px;transition:.2s;}
-.ref-btn:hover{color:var(--text);}
-.spin{display:inline-block;}
-.spinning .spin{animation:spin .7s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg)}}
+  /* ── STEPS ── */
+  .steps-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; margin-top:60px; }
+  .step-card { background:var(--surface); border:1px solid rgba(201,168,76,0.15); border-radius:16px; padding:36px 28px; text-align:center; transition:all .4s; position:relative; overflow:hidden; }
+  .step-card::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 50% 0%,rgba(201,168,76,0.07),transparent 70%); opacity:0; transition:opacity .4s; }
+  .step-card:hover { transform:translateY(-6px); border-color:rgba(201,168,76,0.4); }
+  .step-card:hover::before { opacity:1; }
+  .step-num { width:52px; height:52px; background:linear-gradient(135deg,var(--gold),var(--gold-dark)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Amiri',serif; font-size:22px; font-weight:700; color:var(--deep); margin:0 auto 20px; }
+  .step-icon { font-size:36px; margin-bottom:16px; }
+  .step-title { font-size:18px; font-weight:700; margin-bottom:10px; }
+  .step-desc { font-size:14px; color:var(--text-muted); line-height:1.7; }
 
-/* ══════════════════════════════
-   LAYOUT ZONES
-══════════════════════════════ */
+  /* ── PROFILES ── */
+  .profiles-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; flex-wrap:wrap; gap:16px; }
+  .filter-tabs { display:flex; gap:8px; flex-wrap:wrap; }
+  .tab { padding:8px 20px; border-radius:50px; border:1px solid rgba(201,168,76,0.25); background:transparent; color:var(--text-muted); font-family:'Tajawal',sans-serif; font-size:14px; cursor:pointer; transition:all .3s; }
+  .tab.active,.tab:hover { background:rgba(201,168,76,0.15); border-color:var(--gold); color:var(--gold); }
+  .profiles-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px; }
+  .profile-card { background:var(--surface); border:1px solid rgba(201,168,76,0.12); border-radius:16px; overflow:hidden; transition:all .4s; position:relative; }
+  .profile-card:hover { transform:translateY(-5px); border-color:rgba(201,168,76,0.35); box-shadow:0 20px 40px rgba(0,0,0,0.3); }
+  .profile-top { background:linear-gradient(135deg,var(--surface2),#243450); padding:28px; text-align:center; position:relative; }
+  .profile-avatar { width:80px; height:80px; background:linear-gradient(135deg,var(--gold-dark),var(--gold)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:32px; margin:0 auto 14px; border:3px solid rgba(201,168,76,0.3); }
+  .profile-verified { position:absolute; top:16px; left:16px; background:rgba(91,158,108,0.2); border:1px solid var(--green); color:var(--green); border-radius:50px; padding:3px 10px; font-size:11px; font-weight:700; }
+  .profile-pending { position:absolute; top:16px; left:16px; background:rgba(201,168,76,0.2); border:1px solid var(--gold); color:var(--gold); border-radius:50px; padding:3px 10px; font-size:11px; font-weight:700; }
+  .profile-name { font-size:18px; font-weight:700; margin-bottom:4px; }
+  .profile-age-city { font-size:13px; color:var(--text-muted); }
+  .profile-body { padding:20px; }
+  .profile-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+  .tag { padding:4px 12px; border-radius:50px; background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.2); font-size:12px; color:var(--text-muted); }
+  .profile-bio { font-size:13px; color:var(--text-muted); line-height:1.7; margin-bottom:16px; }
+  .profile-action { width:100%; padding:10px; border-radius:8px; border:1px solid rgba(201,168,76,0.3); background:transparent; color:var(--gold); font-family:'Tajawal',sans-serif; font-size:14px; font-weight:700; cursor:pointer; transition:all .3s; }
+  .profile-action:hover { background:rgba(201,168,76,0.1); }
 
-/* ZONE A — HERO (1 big + 2 side stacked) */
-.zone-hero{display:grid;grid-template-columns:2fr 1fr;gap:3px;margin-bottom:3px;border-radius:12px;overflow:hidden;}
-@media(max-width:640px){.zone-hero{grid-template-columns:1fr;}}
+  /* ── FEATURES ── */
+  .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:60px; }
+  .feature-card { padding:32px; background:var(--surface); border:1px solid rgba(201,168,76,0.1); border-radius:16px; transition:all .3s; }
+  .feature-card:hover { border-color:rgba(201,168,76,0.3); background:var(--surface2); }
+  .feature-icon { font-size:40px; margin-bottom:16px; display:block; }
+  .feature-title { font-size:18px; font-weight:700; margin-bottom:10px; }
+  .feature-desc { font-size:14px; color:var(--text-muted); line-height:1.8; }
 
-.hero-main{position:relative;cursor:pointer;overflow:hidden;min-height:380px;background:var(--card);}
-.hero-main img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
-.hero-main:hover img{transform:scale(1.03);}
-.hero-main .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.93) 0%,rgba(0,0,0,.3) 55%,transparent 100%);}
-.hero-main .body{position:absolute;bottom:0;left:0;right:0;padding:22px 20px;}
-.hero-main .cat-tag{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:4px;margin-bottom:9px;letter-spacing:.5px;}
-.hero-main h2{font-family:'Tajawal',sans-serif;font-weight:900;font-size:20px;line-height:1.5;margin-bottom:10px;}
-.hero-main .meta{display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.55);}
-.hero-main .src{color:var(--red);font-weight:700;}
-.no-img-hero{width:100%;height:100%;min-height:380px;background:linear-gradient(135deg,#1a1a22,#0f0f14);display:flex;align-items:center;justify-content:center;font-size:56px;opacity:.25;}
+  /* ── REGISTER SECTION ── */
+  .register-section { background:linear-gradient(135deg,var(--surface),var(--surface2)); border:1px solid rgba(201,168,76,0.2); border-radius:24px; padding:64px 48px; text-align:center; position:relative; overflow:hidden; }
+  .register-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(201,168,76,0.07),transparent); }
+  .register-section > * { position:relative; z-index:1; }
+  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; max-width:600px; margin:40px auto 0; text-align:right; }
+  .form-group { display:flex; flex-direction:column; gap:8px; }
+  .form-group.full { grid-column:1/-1; }
+  .form-label { font-size:13px; color:var(--text-muted); font-weight:500; }
+  .form-input,.form-select,.form-textarea { padding:12px 16px; background:rgba(255,255,255,0.05); border:1px solid rgba(201,168,76,0.2); border-radius:10px; color:var(--text); font-family:'Tajawal',sans-serif; font-size:15px; outline:none; transition:border-color .3s; width:100%; }
+  .form-input::placeholder { color:rgba(168,152,120,0.5); }
+  .form-input:focus,.form-select:focus,.form-textarea:focus { border-color:var(--gold); }
+  .form-select option { background:var(--deep2); }
+  .form-textarea { resize:vertical; min-height:100px; }
+  .checkbox-group { display:flex; align-items:flex-start; gap:10px; margin-top:8px; text-align:right; }
+  .checkbox-group input { margin-top:3px; accent-color:var(--gold); cursor:pointer; }
+  .checkbox-group label { font-size:13px; color:var(--text-muted); line-height:1.6; }
 
-.hero-side-col{display:flex;flex-direction:column;gap:3px;}
-.hero-side{position:relative;cursor:pointer;overflow:hidden;flex:1;background:var(--card);min-height:188px;}
-.hero-side img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
-.hero-side:hover img{transform:scale(1.04);}
-.hero-side .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.2) 60%,transparent 100%);}
-.hero-side .body{position:absolute;bottom:0;left:0;right:0;padding:14px 14px;}
-.hero-side .cat-tag{display:inline-block;background:rgba(229,37,26,.85);color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;margin-bottom:6px;}
-.hero-side h3{font-family:'Tajawal',sans-serif;font-weight:800;font-size:13px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
-.hero-side .meta{font-size:10px;color:rgba(255,255,255,.5);margin-top:5px;}
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; margin-top:60px; }
+  .testimonial-card { background:var(--surface); border:1px solid rgba(201,168,76,0.12); border-radius:16px; padding:32px; }
+  .stars { color:var(--gold); font-size:16px; margin-bottom:16px; }
+  .testimonial-text { font-size:15px; color:var(--text-muted); line-height:1.8; margin-bottom:20px; font-style:italic; }
+  .testimonial-author { display:flex; align-items:center; gap:12px; }
+  .author-avatar { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--gold-dark),var(--gold)); display:flex; align-items:center; justify-content:center; font-size:20px; }
+  .author-name { font-size:15px; font-weight:700; }
+  .author-from { font-size:12px; color:var(--text-muted); }
 
-/* ZONE B — ROW LIST (thumbnail left + text right) */
-.zone-b{margin:3px 0;}
-.row-list{display:flex;flex-direction:column;gap:2px;}
-.row-card{display:flex;gap:0;background:var(--card);cursor:pointer;overflow:hidden;transition:.18s;border-radius:0;}
-.row-card:first-child{border-radius:10px 10px 0 0;}
-.row-card:last-child{border-radius:0 0 10px 10px;}
-.row-card:only-child{border-radius:10px;}
-.row-card:hover{background:#1a1a22;}
-.row-card-img{width:120px;height:82px;object-fit:cover;flex-shrink:0;display:block;}
-.row-card-nimg{width:120px;height:82px;background:linear-gradient(135deg,var(--bg3),#1a1a22);display:flex;align-items:center;justify-content:center;font-size:22px;opacity:.3;flex-shrink:0;}
-.row-card-body{padding:10px 14px;display:flex;flex-direction:column;justify-content:center;gap:5px;flex:1;min-width:0;}
-.row-card-tag{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;letter-spacing:.5px;width:fit-content;}
-.row-card-title{font-family:'Tajawal',sans-serif;font-weight:700;font-size:13px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.row-card-meta{font-size:10px;color:var(--muted);display:flex;gap:8px;}
-.row-src{color:var(--red);font-weight:600;}
+  /* ── FOOTER ── */
+  footer { border-top:1px solid rgba(201,168,76,0.15); padding:48px 0 24px; text-align:center; }
+  .footer-logo { font-family:'Amiri',serif; font-size:32px; color:var(--gold); margin-bottom:12px; }
+  .footer-quote { font-family:'Amiri',serif; font-size:18px; color:var(--text-muted); margin-bottom:32px; }
+  .footer-links { display:flex; gap:24px; justify-content:center; flex-wrap:wrap; margin-bottom:28px; }
+  .footer-links a { color:var(--text-muted); text-decoration:none; font-size:14px; transition:color .3s; cursor:pointer; }
+  .footer-links a:hover { color:var(--gold); }
+  .footer-copy { font-size:12px; color:rgba(168,152,120,0.5); }
 
-/* ZONE C — 3-col grid */
-.zone-c{margin-top:3px;}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-@media(max-width:768px){.grid3{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:480px){.grid3{grid-template-columns:1fr;}}
+  /* ── LIVE DOT ── */
+  .live-dot { width:8px; height:8px; background:var(--green); border-radius:50%; animation:pulse 2s infinite; display:inline-block; }
 
-.g3-card{background:var(--card);cursor:pointer;overflow:hidden;border-radius:0;transition:.18s;}
-.grid3 .g3-card:first-child{border-radius:10px 0 0 0;}
-.grid3 .g3-card:nth-child(3){border-radius:0 10px 0 0;}
-.grid3 .g3-card:last-child{border-radius:0 0 10px 10px;}
-.g3-card:hover{background:#1a1a22;}
-.g3-img{width:100%;height:150px;object-fit:cover;display:block;transition:transform .3s;}
-.g3-card:hover .g3-img{transform:scale(1.03);}
-.g3-nimg{width:100%;height:150px;background:linear-gradient(135deg,var(--bg3),#1a1a22);display:flex;align-items:center;justify-content:center;font-size:30px;opacity:.25;}
-.g3-body{padding:12px 13px;}
-.g3-tag{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;margin-bottom:7px;letter-spacing:.5px;}
-.g3-title{font-family:'Tajawal',sans-serif;font-weight:700;font-size:13px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:8px;}
-.g3-meta{display:flex;align-items:center;gap:7px;font-size:10px;color:var(--muted);}
-.g3-src{color:var(--red);font-weight:600;}
+  /* ── MODAL ── */
+  .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(8px); z-index:200; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s; padding:20px; }
+  .modal-overlay.open { opacity:1; pointer-events:all; }
+  .modal { background:var(--surface); border:1px solid rgba(201,168,76,0.25); border-radius:20px; padding:40px; max-width:480px; width:100%; position:relative; max-height:90vh; overflow-y:auto; }
+  .modal-close { position:absolute; top:16px; left:16px; background:none; border:none; color:var(--text-muted); font-size:20px; cursor:pointer; }
+  .modal-close:hover { color:var(--text); }
+  .modal-icon { font-size:48px; margin-bottom:16px; }
+  .modal-title { font-family:'Amiri',serif; font-size:28px; margin-bottom:8px; }
+  .modal-sub { font-size:15px; color:var(--text-muted); margin-bottom:28px; line-height:1.7; }
 
-/* ZONE D — Wide banner card */
-.zone-d{margin-top:3px;}
-.wide-card{background:var(--card);cursor:pointer;overflow:hidden;border-radius:10px;display:flex;min-height:130px;transition:.18s;}
-.wide-card:hover{background:#1a1a22;}
-.wide-img{width:260px;object-fit:cover;display:block;flex-shrink:0;transition:transform .3s;}
-.wide-card:hover .wide-img{transform:scale(1.02);}
-.wide-nimg{width:260px;background:linear-gradient(135deg,var(--bg3),#1a1a22);display:flex;align-items:center;justify-content:center;font-size:36px;opacity:.25;flex-shrink:0;}
-.wide-body{padding:18px 20px;display:flex;flex-direction:column;justify-content:center;gap:8px;}
-.wide-tag{display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.5px;width:fit-content;}
-.wide-title{font-family:'Tajawal',sans-serif;font-weight:900;font-size:16px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.wide-desc{font-size:12px;color:var(--muted);line-height:1.7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.wide-meta{display:flex;gap:9px;font-size:10px;color:var(--muted);}
-.wide-src{color:var(--red);font-weight:700;}
-@media(max-width:560px){.wide-card{flex-direction:column;}.wide-img,.wide-nimg{width:100%;height:160px;}}
+  /* ── TOAST ── */
+  .toast { position:fixed; bottom:32px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--surface2); border:1px solid rgba(201,168,76,0.3); border-radius:12px; padding:14px 28px; font-size:15px; font-weight:500; z-index:300; opacity:0; transition:all .3s; pointer-events:none; white-space:nowrap; }
+  .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+  .toast.error { border-color:var(--red); color:var(--red); }
+  .toast.success { border-color:var(--green); color:var(--green); }
 
-/* SECTION DIVIDER */
-.sdiv{display:flex;align-items:center;gap:10px;margin:22px 0 14px;}
-.sdiv-bar{width:4px;height:22px;background:var(--red);border-radius:2px;flex-shrink:0;}
-.sdiv-title{font-family:'Tajawal',sans-serif;font-weight:900;font-size:16px;}
-.sdiv-line{flex:1;height:1px;background:var(--border);}
+  /* ── DASHBOARD (User) ── */
+  .dashboard { padding:90px 20px 60px; max-width:900px; margin:0 auto; }
+  .dash-header { display:flex; align-items:center; gap:20px; background:var(--surface); border:1px solid rgba(201,168,76,0.2); border-radius:20px; padding:32px; margin-bottom:32px; flex-wrap:wrap; }
+  .dash-avatar { width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg,var(--gold-dark),var(--gold)); display:flex; align-items:center; justify-content:center; font-size:36px; flex-shrink:0; }
+  .dash-info h2 { font-family:'Amiri',serif; font-size:26px; margin-bottom:6px; }
+  .dash-info p { color:var(--text-muted); font-size:14px; }
+  .dash-status { margin-right:auto; text-align:center; }
+  .status-badge { display:inline-block; padding:6px 18px; border-radius:50px; font-size:13px; font-weight:700; }
+  .status-pending { background:rgba(201,168,76,0.15); border:1px solid var(--gold); color:var(--gold); }
+  .status-approved { background:rgba(91,158,108,0.15); border:1px solid var(--green); color:var(--green); }
+  .status-rejected { background:rgba(224,92,92,0.15); border:1px solid var(--red); color:var(--red); }
+  .dash-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-bottom:32px; }
+  .dash-card { background:var(--surface); border:1px solid rgba(201,168,76,0.12); border-radius:16px; padding:24px; text-align:center; }
+  .dash-card-num { font-family:'Amiri',serif; font-size:32px; color:var(--gold); font-weight:700; }
+  .dash-card-label { font-size:13px; color:var(--text-muted); margin-top:4px; }
+  .dash-section { background:var(--surface); border:1px solid rgba(201,168,76,0.12); border-radius:16px; padding:28px; margin-bottom:24px; }
+  .dash-section-title { font-size:18px; font-weight:700; margin-bottom:20px; display:flex; align-items:center; gap:10px; }
 
-/* AD SLOT */
-.ad-slot{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;margin:18px 0;position:relative;min-height:80px;}
-.ad-slot::before{content:'إعلان';position:absolute;top:6px;right:10px;font-size:9px;color:var(--muted);letter-spacing:1px;}
+  /* ── ADMIN DASHBOARD ── */
+  .admin-page { padding:90px 20px 60px; max-width:1100px; margin:0 auto; }
+  .admin-title { font-family:'Amiri',serif; font-size:36px; color:var(--gold); margin-bottom:8px; }
+  .admin-sub { color:var(--text-muted); margin-bottom:32px; }
+  .admin-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin-bottom:40px; }
+  .admin-stat { background:var(--surface); border:1px solid rgba(201,168,76,0.15); border-radius:16px; padding:24px; text-align:center; }
+  .admin-stat-num { font-family:'Amiri',serif; font-size:34px; color:var(--gold); font-weight:700; }
+  .admin-stat-label { font-size:13px; color:var(--text-muted); margin-top:6px; }
+  .admin-tabs { display:flex; gap:10px; margin-bottom:28px; flex-wrap:wrap; }
+  .admin-tab { padding:10px 24px; border-radius:10px; border:1px solid rgba(201,168,76,0.25); background:transparent; color:var(--text-muted); font-family:'Tajawal',sans-serif; font-size:14px; font-weight:600; cursor:pointer; transition:all .3s; }
+  .admin-tab.active { background:rgba(201,168,76,0.15); border-color:var(--gold); color:var(--gold); }
+  .admin-content { display:none; }
+  .admin-content.active { display:block; }
+  .member-row { display:flex; align-items:center; gap:16px; background:var(--surface); border:1px solid rgba(201,168,76,0.1); border-radius:14px; padding:18px 22px; margin-bottom:12px; flex-wrap:wrap; }
+  .member-avatar { width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,var(--gold-dark),var(--gold)); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+  .member-info { flex:1; min-width:150px; }
+  .member-name { font-weight:700; font-size:16px; margin-bottom:3px; }
+  .member-meta { font-size:13px; color:var(--text-muted); }
+  .member-actions { display:flex; gap:8px; flex-wrap:wrap; }
+  .btn-approve { padding:7px 16px; border:1px solid var(--green); border-radius:8px; background:transparent; color:var(--green); font-family:'Tajawal',sans-serif; font-size:13px; cursor:pointer; transition:all .3s; }
+  .btn-approve:hover { background:rgba(91,158,108,0.1); }
+  .btn-reject { padding:7px 16px; border:1px solid var(--red); border-radius:8px; background:transparent; color:var(--red); font-family:'Tajawal',sans-serif; font-size:13px; cursor:pointer; transition:all .3s; }
+  .btn-reject:hover { background:rgba(224,92,92,0.1); }
+  .empty-state { text-align:center; padding:60px 20px; color:var(--text-muted); }
+  .empty-state-icon { font-size:52px; margin-bottom:16px; }
 
-/* BADGE COLORS */
-.b-crime{background:rgba(229,37,26,.85);color:#fff;}
-.b-war{background:rgba(239,68,68,.8);color:#fff;}
-.b-military{background:rgba(107,114,128,.9);color:#fff;}
-.b-podcast{background:rgba(139,92,246,.85);color:#fff;}
-.b-general{background:rgba(59,130,246,.8);color:#fff;}
-.b-all{background:rgba(20,184,166,.8);color:#fff;}
+  /* ── PROFILE EDIT ── */
+  .profile-edit-page { padding:90px 20px 60px; max-width:700px; margin:0 auto; }
+  .edit-title { font-family:'Amiri',serif; font-size:32px; color:var(--gold); margin-bottom:8px; }
+  .edit-sub { color:var(--text-muted); margin-bottom:32px; }
+  .edit-form { background:var(--surface); border:1px solid rgba(201,168,76,0.15); border-radius:20px; padding:36px; }
+  .edit-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .edit-group { display:flex; flex-direction:column; gap:8px; }
+  .edit-group.full { grid-column:1/-1; }
+  .edit-label { font-size:13px; color:var(--text-muted); font-weight:600; }
 
-/* SKELETON */
-.skel-hero{border-radius:12px;overflow:hidden;display:grid;grid-template-columns:2fr 1fr;gap:3px;margin-bottom:18px;}
-.skel-block{background:linear-gradient(90deg,var(--bg3) 25%,#1e1e26 50%,var(--bg3) 75%);background-size:200% 100%;animation:shim 1.5s infinite;}
-@keyframes shim{to{background-position:-200% 0}}
+  /* ── LOADING ── */
+  .loading { display:flex; align-items:center; justify-content:center; min-height:200px; }
+  .spinner { width:40px; height:40px; border:3px solid rgba(201,168,76,0.2); border-top-color:var(--gold); border-radius:50%; animation:spin .8s linear infinite; }
 
-/* READER */
-.reader-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);z-index:400;flex-direction:column;}
-.reader-ov.open{display:flex;}
-.reader-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0;}
-.reader-close{width:34px;height:34px;border-radius:50%;background:rgba(229,37,26,.12);border:1px solid rgba(229,37,26,.25);color:var(--red);font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.2s;}
-.reader-close:hover{background:var(--red);color:#fff;}
-.reader-title{flex:1;font-family:'Tajawal',sans-serif;font-weight:700;font-size:13px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.reader-ext{display:flex;align-items:center;gap:5px;background:var(--bg3);border:1px solid var(--border);color:var(--muted);padding:5px 11px;border-radius:7px;font-size:11px;text-decoration:none;flex-shrink:0;transition:.2s;}
-.reader-ext:hover{color:var(--text);}
-.reader-wrap{flex:1;position:relative;}
-.reader-frame{width:100%;height:100%;border:none;background:#fff;}
-.reader-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);gap:12px;}
-.reader-spinner{width:38px;height:38px;border:3px solid var(--bg3);border-top-color:var(--red);border-radius:50%;animation:spin .8s linear infinite;}
-.reader-loading p{font-size:12px;color:var(--muted);}
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(91,158,108,0.4)} 50%{box-shadow:0 0 0 8px rgba(91,158,108,0)} }
+  @keyframes spin { to{transform:rotate(360deg)} }
 
-/* TOAST */
-.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#1c1c24;border:1px solid rgba(229,37,26,.35);color:var(--text);padding:10px 18px;border-radius:9px;font-size:12px;z-index:600;opacity:0;transition:.3s;pointer-events:none;max-width:88vw;text-align:center;}
-.toast.show{opacity:1;}
-
-footer{border-top:1px solid var(--border);padding:20px 16px;text-align:center;color:var(--muted);font-size:11px;margin-top:10px;}
-footer strong{color:var(--text);}
-
-::-webkit-scrollbar{width:3px;}
-::-webkit-scrollbar-track{background:var(--bg2);}
-::-webkit-scrollbar-thumb{background:var(--red);border-radius:3px;}
-
-@media(max-width:600px){
-  .ticker{display:none;}
-  .hdr{gap:8px;}
-}
+  /* ── RESPONSIVE ── */
+  @media(max-width:768px) {
+    nav { padding:0 16px; }
+    .nav-links { display:none; }
+    .hero-stats { gap:24px; flex-wrap:wrap; justify-content:center; }
+    .form-grid,.edit-grid { grid-template-columns:1fr; }
+    .register-section { padding:40px 24px; }
+    .edit-form { padding:24px; }
+    .member-row { flex-direction:column; align-items:flex-start; }
+    .dash-header { flex-direction:column; text-align:center; }
+    .dash-status { margin-right:0; }
+  }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="hdr">
-    <a class="logo" href="#">
-      <div class="logo-hex">🎯</div>
-      <span class="logo-name">مِر<em>صاد</em></span>
-    </a>
-    <div class="ticker">
-      <div class="ticker-tag">عاجل</div>
-      <div class="ticker-inner">
-        <div class="ticker-run" id="tickerRun"><span>جارٍ تحميل الأخبار...</span></div>
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">
+    <span>🌙</span><span>نِكَاح</span>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home');smoothScroll('how')">كيف يعمل</a></li>
+    <li><a onclick="showPage('home');smoothScroll('profiles')">الملفات</a></li>
+    <li><a onclick="showPage('home');smoothScroll('features')">المميزات</a></li>
+    <li><a onclick="showPage('home');smoothScroll('about')">عن المنصة</a></li>
+  </ul>
+  <div class="nav-btns">
+    <div id="nav-user-area">
+      <button class="btn-ghost" onclick="openModal('login')">تسجيل الدخول</button>
+      <button class="btn-gold" onclick="openModal('register')">انضم مجاناً</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ HOME PAGE ══════════════ -->
+<div id="page-home" class="page active">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container" style="display:flex;flex-direction:column;align-items:center;">
+    <div class="hero-badge"><span class="live-dot"></span> أكثر من 12,000 عضو نشط الآن</div>
+    <p class="hero-ayah">﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا ﴾</p>
+    <p class="hero-ayah-ref">سورة الروم، الآية ٢١</p>
+    <h1 class="hero-title">ابحث عن رفيق<br><span>طريقك إلى الجنة</span></h1>
+    <p class="hero-sub">منصة زواج إسلامية آمنة وموثوقة، تحت إشراف محكّمين شرعيين. نساعدك في إيجاد الشريك المناسب بطريقة حلال ومحترمة.</p>
+    <div class="hero-btns">
+      <button class="btn-gold btn-lg" onclick="openModal('register')">ابدأ رحلتك 🌟</button>
+      <button class="btn-ghost btn-lg" onclick="smoothScroll('how')">كيف يعمل؟</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num" id="stat-members">+45K</div><div class="stat-label">عضو مسجّل</div></div>
+      <div class="stat"><div class="stat-num">+3200</div><div class="stat-label">زواج ناجح</div></div>
+      <div class="stat"><div class="stat-num">32</div><div class="stat-label">دولة عربية وإسلامية</div></div>
+      <div class="stat"><div class="stat-num">98%</div><div class="stat-label">رضا المستخدمين</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="ornament"><span class="ornament-icon">✦</span></div>
+    <p class="section-label" style="text-align:center">خطوات بسيطة</p>
+    <h2 class="section-title" style="text-align:center">كيف تعمل المنصة؟</h2>
+    <p class="section-sub" style="text-align:center;margin:0 auto 8px;">طريق واضح نحو الزواج الحلال</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">١</div><div class="step-icon">📝</div><h3 class="step-title">أنشئ ملفك</h3><p class="step-desc">سجّل بياناتك الأساسية وأضف معلومات عن نفسك وتوقعاتك من الزواج باحترام وصدق.</p></div>
+      <div class="step-card"><div class="step-num">٢</div><div class="step-icon">✅</div><h3 class="step-title">التحقق والإشراف</h3><p class="step-desc">يتم التحقق من ملفك بواسطة فريق متخصص لضمان البيئة الآمنة والمحترمة.</p></div>
+      <div class="step-card"><div class="step-num">٣</div><div class="step-icon">🔍</div><h3 class="step-title">تصفّح الملفات</h3><p class="step-desc">ابحث وصفّح ملفات المناسبين لك بناءً على المعايير التي تهمك.</p></div>
+      <div class="step-card"><div class="step-num">٤</div><div class="step-icon">💬</div><h3 class="step-title">تواصل بأدب</h3><p class="step-desc">تواصل عبر نظام المراسلة المُشرَف عليه مع وليّ الأمر أو المحكّم الشرعي.</p></div>
+      <div class="step-card"><div class="step-num">٥</div><div class="step-icon">💍</div><h3 class="step-title">الخطوبة والزواج</h3><p class="step-desc">بعد الاستخارة والتوافق، احتفلوا بعقد النكاح الشرعي بإذن الله.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Profiles -->
+<section class="section" id="profiles" style="padding-top:40px;">
+  <div class="container">
+    <div class="ornament"><span class="ornament-icon">✦</span></div>
+    <div class="profiles-header">
+      <div>
+        <p class="section-label">ملفات حقيقية</p>
+        <h2 class="section-title">تعرّف على الأعضاء</h2>
+      </div>
+      <div class="filter-tabs">
+        <button class="tab active" onclick="filterProfiles('all',this)">الكل</button>
+        <button class="tab" onclick="filterProfiles('male',this)">الأخوة</button>
+        <button class="tab" onclick="filterProfiles('female',this)">الأخوات</button>
       </div>
     </div>
-    <div class="live"><div class="live-dot"></div>مباشر</div>
-    <select class="lang-sel" id="langSel" onchange="onLang(this.value)">
-      <option value="ar">🌍 عربي</option>
-      <option value="fr">🇫🇷 FR</option>
-      <option value="en">🇬🇧 EN</option>
-    </select>
-  </div>
-</header>
-
-<!-- CATS -->
-<div class="cats">
-  <div class="cats-inner">
-    <button class="cat on" data-cat="all"      onclick="onCat(this)">📡 الكل</button>
-    <button class="cat"    data-cat="crime"    onclick="onCat(this)">🔍 جرائم ومحاكمات</button>
-    <button class="cat"    data-cat="war"      onclick="onCat(this)">💥 حروب وصراعات</button>
-    <button class="cat"    data-cat="military" onclick="onCat(this)">🪖 آليات عسكرية</button>
-    <button class="cat"    data-cat="podcast"  onclick="onCat(this)">🎙️ قصص جريمة</button>
-    <button class="cat"    data-cat="general"  onclick="onCat(this)">🌐 أخبار عامة</button>
-  </div>
-</div>
-
-<div class="wrap">
-  <!-- TOOLBAR -->
-  <div class="toolbar">
-    <span class="sec-title" id="secTitle">آخر الأخبار</span>
-    <div class="sec-line"></div>
-    <span class="sec-count" id="secCount">0 خبر</span>
-    <div class="srch">
-      <span class="srch-ico">🔎</span>
-      <input id="srchInput" placeholder="ابحث في الأخبار..." oninput="onSearch()">
+    <div class="profiles-grid" id="profilesGrid">
+      <div class="loading"><div class="spinner"></div></div>
     </div>
-    <button class="ref-btn" id="refBtn" onclick="load()"><span class="spin">↻</span> تحديث</button>
+    <div style="text-align:center;margin-top:40px;">
+      <button class="btn-ghost btn-lg" onclick="openModal('register')">عرض المزيد من الملفات</button>
+    </div>
   </div>
+</section>
 
-  <!-- CONTENT -->
-  <div id="content"></div>
-</div>
+<!-- Features -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="ornament"><span class="ornament-icon">✦</span></div>
+    <p class="section-label">لماذا نكاح؟</p>
+    <h2 class="section-title">مميزات تجعلنا مختلفين</h2>
+    <div class="features-grid">
+      <div class="feature-card"><span class="feature-icon">🛡️</span><h3 class="feature-title">خصوصية كاملة</h3><p class="feature-desc">ملفك محمي، ولا تظهر صورتك إلا بموافقتك. بياناتك لن تُشارَك مع أي طرف ثالث.</p></div>
+      <div class="feature-card"><span class="feature-icon">🕌</span><h3 class="feature-title">إشراف شرعي</h3><p class="feature-desc">فريق من المحكّمين الشرعيين يشرف على التواصل للتأكد من سلامته شرعاً.</p></div>
+      <div class="feature-card"><span class="feature-icon">🤖</span><h3 class="feature-title">تطابق ذكي</h3><p class="feature-desc">نظام يقترح عليك الملفات الأكثر توافقاً مع تفضيلاتك وقيمك.</p></div>
+      <div class="feature-card"><span class="feature-icon">🌍</span><h3 class="feature-title">عالمي وعربي</h3><p class="feature-desc">أعضاء من 32 دولة عربية وإسلامية. المنصة متاحة بالكامل باللغة العربية.</p></div>
+      <div class="feature-card"><span class="feature-icon">✔️</span><h3 class="feature-title">ملفات موثّقة</h3><p class="feature-desc">نتحقق من هوية كل عضو للحد من الحسابات المزيفة وضمان المصداقية.</p></div>
+      <div class="feature-card"><span class="feature-icon">👨‍👩‍👧</span><h3 class="feature-title">وليّ الأمر</h3><p class="feature-desc">نتيح لوليّ أمر المرأة المشاركة في المراسلات لضمان السير الصحيح شرعاً.</p></div>
+    </div>
+  </div>
+</section>
 
+<!-- Testimonials -->
+<section class="section" id="about" style="padding-top:40px;">
+  <div class="container">
+    <div class="ornament"><span class="ornament-icon">✦</span></div>
+    <p class="section-label" style="text-align:center">قصص نجاح</p>
+    <h2 class="section-title" style="text-align:center">سعدوا بفضل الله ثم بنكاح</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"ما كنت أصدق أني سأجد شريك الحياة عبر الإنترنت، لكن المنصة كانت محترمة جداً وآمنة. تزوجنا بعد ثلاثة أشهر، الحمد لله."</p><div class="testimonial-author"><div class="author-avatar">👨</div><div><div class="author-name">أحمد م.</div><div class="author-from">🇸🇦 الرياض</div></div></div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"شعرت بالأمان من أول لحظة. المحكّم الشرعي ساعدنا كثيراً. وصلنا للخطبة بطريقة صحيحة ومحترمة."</p><div class="testimonial-author"><div class="author-avatar">👩</div><div><div class="author-name">فاطمة ع.</div><div class="author-from">🇪🇬 القاهرة</div></div></div></div>
+      <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"نظام التطابق أقترح عليّ ملفات تناسبني فعلاً. وجدت زوجتي المناسبة في وقت قصير، جزاكم الله خيراً."</p><div class="testimonial-author"><div class="author-avatar">👨</div><div><div class="author-name">خالد ر.</div><div class="author-from">🇲🇦 الدار البيضاء</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Register CTA -->
+<section class="section">
+  <div class="container">
+    <div class="register-section">
+      <div class="ornament"><span class="ornament-icon">🌙</span></div>
+      <p class="section-label">ابدأ الآن مجاناً</p>
+      <h2 class="section-title">سجّل ملفك في دقيقتين</h2>
+      <p class="section-sub" style="margin:0 auto 8px;max-width:500px;text-align:center;">أنشئ ملفك الآن وابدأ رحلة البحث عن شريك الحياة بطريقة إسلامية صحيحة</p>
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">الاسم الكامل</label><input type="text" class="form-input" placeholder="اسمك الكريم" id="reg-name"></div>
+        <div class="form-group"><label class="form-label">العمر</label><input type="number" class="form-input" placeholder="عمرك" id="reg-age" min="18" max="70"></div>
+        <div class="form-group"><label class="form-label">الجنس</label>
+          <select class="form-select" id="reg-gender">
+            <option value="">اختر...</option>
+            <option value="male">أخ يبحث عن زوجة</option>
+            <option value="female">أخت تبحث عن زوج</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">الدولة</label>
+          <select class="form-select" id="reg-country">
+            <option value="">اختر دولتك</option>
+            <option>المملكة العربية السعودية</option><option>مصر</option><option>الإمارات</option><option>الكويت</option><option>الأردن</option><option>المغرب</option><option>الجزائر</option><option>تونس</option><option>ليبيا</option><option>العراق</option><option>سوريا</option><option>اليمن</option><option>السودان</option><option>دول أخرى</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">البريد الإلكتروني</label><input type="email" class="form-input" placeholder="بريدك@مثال.com" id="reg-email2"></div>
+        <div class="form-group"><label class="form-label">كلمة المرور</label><input type="password" class="form-input" placeholder="••••••••" id="reg-pass2"></div>
+        <div class="form-group full">
+          <div class="checkbox-group">
+            <input type="checkbox" id="terms2">
+            <label for="terms2">أقر بأن معلوماتي صحيحة وأوافق على <a href="#" style="color:var(--gold)">شروط الاستخدام</a> والالتزام بآداب الإسلام في التواصل.</label>
+          </div>
+        </div>
+        <div class="form-group full" style="margin-top:8px;">
+          <button class="btn-gold btn-lg" style="width:100%" onclick="registerFromCTA()">إنشاء ملفي الآن 🌙</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer>
-  <strong>مِرصاد</strong> — منصة إخبارية متخصصة في الجريمة والحرب والشؤون الأمنية &nbsp;·&nbsp;
-  <span>مدعوم بـ GNews · NewsAPI · CurrentsAPI وغيرها</span>
-</footer>
-
-<!-- READER MODAL -->
-<div class="reader-ov" id="reader">
-  <div class="reader-bar">
-    <button class="reader-close" onclick="closeReader()">✕</button>
-    <div class="reader-title" id="rTitle"></div>
-    <a class="reader-ext" id="rLink" target="_blank" rel="noopener">↗ فتح</a>
-  </div>
-  <div class="reader-wrap">
-    <div class="reader-loading" id="rLoading">
-      <div class="reader-spinner"></div>
-      <p>جارٍ تحميل الخبر...</p>
+  <div class="container">
+    <div class="footer-logo">🌙 نِكَاح</div>
+    <p class="footer-quote">﴿ وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</p>
+    <div class="footer-links">
+      <a onclick="showPage('home')">الرئيسية</a>
+      <a href="#">من نحن</a>
+      <a href="#">سياسة الخصوصية</a>
+      <a href="#">الشروط والأحكام</a>
+      <a href="#">اتصل بنا</a>
+      <a href="#">المحكّمون الشرعيون</a>
     </div>
-    <iframe class="reader-frame" id="rFrame"
-      sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-      onload="rLoaded()" onerror="rError()"></iframe>
+    <p class="footer-copy">جميع الحقوق محفوظة © 2025 منصة نكاح للزواج الإسلامي</p>
+  </div>
+</footer>
+</div><!-- end page-home -->
+
+<!-- ══════════════ DASHBOARD PAGE ══════════════ -->
+<div id="page-dashboard" class="page">
+  <div class="dashboard">
+    <div class="dash-header">
+      <div class="dash-avatar" id="dash-avatar">👤</div>
+      <div class="dash-info">
+        <h2 id="dash-name">مرحباً</h2>
+        <p id="dash-email" style="color:var(--text-muted);font-size:14px;"></p>
+        <p id="dash-joined" style="color:var(--text-muted);font-size:13px;margin-top:4px;"></p>
+      </div>
+      <div class="dash-status">
+        <div id="dash-status-badge" class="status-badge status-pending">⏳ قيد المراجعة</div>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:6px;">حالة الملف</p>
+      </div>
+    </div>
+
+    <div class="dash-cards">
+      <div class="dash-card"><div class="dash-card-num" id="dc-views">0</div><div class="dash-card-label">مشاهدة للملف</div></div>
+      <div class="dash-card"><div class="dash-card-num" id="dc-interests">0</div><div class="dash-card-label">اهتمام مُستلَم</div></div>
+      <div class="dash-card"><div class="dash-card-num" id="dc-sent">0</div><div class="dash-card-label">اهتمام مُرسَل</div></div>
+    </div>
+
+    <div class="dash-section">
+      <div class="dash-section-title">📝 ملفي الشخصي</div>
+      <div id="dash-profile-preview" style="color:var(--text-muted);font-size:14px;">جارٍ تحميل بيانات ملفك...</div>
+      <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+        <button class="btn-gold" onclick="showPage('edit-profile')">✏️ تعديل الملف</button>
+        <button class="btn-ghost" onclick="signOut()">تسجيل الخروج</button>
+      </div>
+    </div>
+
+    <div class="dash-section" id="dash-pending-notice" style="display:none;background:rgba(201,168,76,0.05);border-color:rgba(201,168,76,0.3);">
+      <div class="dash-section-title" style="color:var(--gold)">⏳ ملفك قيد المراجعة</div>
+      <p style="color:var(--text-muted);font-size:14px;line-height:1.8;">تم استلام ملفك وهو الآن قيد المراجعة من قِبَل فريق المحكّمين الشرعيين. سيتم الإخطار بالنتيجة خلال 24-48 ساعة. بارك الله فيك على حرصك.</p>
+    </div>
   </div>
 </div>
 
+<!-- ══════════════ EDIT PROFILE PAGE ══════════════ -->
+<div id="page-edit-profile" class="page">
+  <div class="profile-edit-page">
+    <h1 class="edit-title">✏️ تعديل ملفي الشخصي</h1>
+    <p class="edit-sub">أكمل ملفك لتظهر في نتائج البحث بعد الموافقة الشرعية</p>
+    <div class="edit-form">
+      <div class="edit-grid">
+        <div class="edit-group"><label class="edit-label">الاسم (يظهر مختصراً)</label><input class="form-input" id="ep-name" placeholder="مثال: عبدالرحمن م."></div>
+        <div class="edit-group"><label class="edit-label">العمر</label><input class="form-input" type="number" id="ep-age" min="18" max="70" placeholder="عمرك"></div>
+        <div class="edit-group"><label class="edit-label">الجنس</label>
+          <select class="form-select" id="ep-gender">
+            <option value="">اختر...</option>
+            <option value="male">أخ يبحث عن زوجة</option>
+            <option value="female">أخت تبحث عن زوج</option>
+          </select>
+        </div>
+        <div class="edit-group"><label class="edit-label">المدينة</label><input class="form-input" id="ep-city" placeholder="مدينة الإقامة"></div>
+        <div class="edit-group"><label class="edit-label">الدولة</label>
+          <select class="form-select" id="ep-country">
+            <option value="">اختر دولتك</option>
+            <option>المملكة العربية السعودية</option><option>مصر</option><option>الإمارات</option><option>الكويت</option><option>الأردن</option><option>المغرب</option><option>الجزائر</option><option>تونس</option><option>ليبيا</option><option>العراق</option><option>سوريا</option><option>اليمن</option><option>السودان</option><option>دول أخرى</option>
+          </select>
+        </div>
+        <div class="edit-group"><label class="edit-label">المهنة</label><input class="form-input" id="ep-job" placeholder="مثال: مهندس، طبيب..."></div>
+        <div class="edit-group"><label class="edit-label">المستوى التعليمي</label>
+          <select class="form-select" id="ep-edu">
+            <option value="">اختر...</option>
+            <option>دون الثانوية</option><option>ثانوية عامة</option><option>دبلوم</option><option>بكالوريوس</option><option>ماجستير</option><option>دكتوراه</option>
+          </select>
+        </div>
+        <div class="edit-group"><label class="edit-label">الحالة الاجتماعية</label>
+          <select class="form-select" id="ep-status">
+            <option value="">اختر...</option>
+            <option>أعزب / عزباء</option><option>مطلق / مطلقة</option><option>أرمل / أرملة</option>
+          </select>
+        </div>
+        <div class="edit-group full"><label class="edit-label">نبذة عنك وعن شريك الحياة المناسب</label><textarea class="form-textarea" id="ep-bio" placeholder="اكتب نبذة صادقة عن نفسك وما تبحث عنه في شريك الحياة..."></textarea></div>
+        <div class="edit-group full"><label class="edit-label">المواصفات التي تبحث عنها (مفصولة بفاصلة)</label><input class="form-input" id="ep-tags" placeholder="مثال: ملتزمة، محجبة، تحب الأسرة"></div>
+      </div>
+      <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+        <button class="btn-gold" onclick="saveProfile()">💾 حفظ الملف</button>
+        <button class="btn-ghost" onclick="showPage('dashboard')">رجوع</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ ADMIN PAGE ══════════════ -->
+<div id="page-admin" class="page">
+  <div class="admin-page">
+    <h1 class="admin-title">🛡️ لوحة المشرف الشرعي</h1>
+    <p class="admin-sub">مراجعة الملفات والإشراف على المنصة</p>
+
+    <div class="admin-stats">
+      <div class="admin-stat"><div class="admin-stat-num" id="as-total">0</div><div class="admin-stat-label">إجمالي الأعضاء</div></div>
+      <div class="admin-stat"><div class="admin-stat-num" id="as-pending">0</div><div class="admin-stat-label">بانتظار المراجعة</div></div>
+      <div class="admin-stat"><div class="admin-stat-num" id="as-approved">0</div><div class="admin-stat-label">ملفات معتمدة</div></div>
+      <div class="admin-stat"><div class="admin-stat-num" id="as-rejected">0</div><div class="admin-stat-label">ملفات مرفوضة</div></div>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchAdminTab('pending',this)">⏳ بانتظار المراجعة</button>
+      <button class="admin-tab" onclick="switchAdminTab('approved',this)">✅ معتمدة</button>
+      <button class="admin-tab" onclick="switchAdminTab('rejected',this)">❌ مرفوضة</button>
+      <button class="admin-tab" onclick="switchAdminTab('all',this)">📋 الكل</button>
+    </div>
+
+    <div id="admin-pending" class="admin-content active"><div id="list-pending"></div></div>
+    <div id="admin-approved" class="admin-content"><div id="list-approved"></div></div>
+    <div id="admin-rejected" class="admin-content"><div id="list-rejected"></div></div>
+    <div id="admin-all" class="admin-content"><div id="list-all"></div></div>
+
+    <div style="margin-top:32px;">
+      <button class="btn-ghost" onclick="signOut()">تسجيل الخروج</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ MODAL ══════════════ -->
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal" style="position:relative;">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- ══════════════ TOAST ══════════════ -->
 <div class="toast" id="toast"></div>
 
-<script>
-const API = '/api/news';
+<!-- ══════════════ FIREBASE ══════════════ -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut as fbSignOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, collection, getDocs, updateDoc, query, where, orderBy, serverTimestamp, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const CATS = {
-  all:     {ar:'الكل',           icon:'📡',badge:'b-all',
-    q:{ar:'جريمة حرب|قتل صراع',fr:'crime guerre|meurtre conflit',en:'crime war|murder conflict'}},
-  crime:   {ar:'جرائم ومحاكمات',icon:'🔍',badge:'b-crime',
-    q:{ar:'جريمة محاكمة|قتل اعتقال',fr:'crime tribunal|meurtre arrestation',en:'crime trial|murder arrest'}},
-  war:     {ar:'حروب وصراعات',  icon:'💥',badge:'b-war',
-    q:{ar:'حرب صراع|قصف هجوم',fr:'guerre conflit|bombardement attaque',en:'war conflict|airstrike attack'}},
-  military:{ar:'آليات عسكرية',  icon:'🪖',badge:'b-military',
-    q:{ar:'آليات عسكرية أسلحة|جيش قوات',fr:'armée militaire|armes soldats',en:'military weapons|army forces'}},
-  podcast: {ar:'قصص جريمة',     icon:'🎙️',badge:'b-podcast',
-    q:{ar:'جريمة حقيقية قصة|مجرم مطلوب',fr:'true crime histoire|criminel recherché',en:'true crime story|serial killer'}},
-  general: {ar:'أخبار عامة',    icon:'🌐',badge:'b-general',
-    q:{ar:'أخبار عاجلة|حوادث كوارث',fr:'actualités urgentes|incidents',en:'breaking news|incidents'}},
+const firebaseConfig = {
+  apiKey: "AIzaSyDwplTLuDe77rKur8L2CJLNuy4cXFbXbe0",
+  authDomain: "nikah-6da36.firebaseapp.com",
+  projectId: "nikah-6da36",
+  storageBucket: "nikah-6da36.firebasestorage.app",
+  messagingSenderId: "370680592746",
+  appId: "1:370680592746:web:89c0ae6e9a74566e21cd13"
 };
-const LANGS = {ar:'عربي',fr:'Français',en:'English'};
 
-let arts=[], cat='all', lang='ar';
-const S={};
+const ADMIN_EMAIL = "younassouakka@gmail.com"; // ← بريد المشرف
 
-load();
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-async function load(){
-  setLoading(true);
-  const q = CATS[cat].q[lang];
-  try{
-    const r = await fetch(`${API}?q=${encodeURIComponent(q)}&lang=${lang}`);
-    if(!r.ok) throw new Error(`HTTP ${r.status}`);
-    const d = await r.json();
-    if(d.error) throw new Error(d.error);
-    arts = d.articles||[];
-    paint(arts);
-    ticker();
-  }catch(e){
-    document.getElementById('content').innerHTML = empty(`تعذّر التحميل: ${e.message}`,'⚠️');
-    showToast(e.message);
-  }finally{ setLoading(false); }
-}
+// ── Expose globals ──
+window._auth = auth;
+window._db = db;
+window._ADMIN = ADMIN_EMAIL;
+window._fns = { createUserWithEmailAndPassword, signInWithEmailAndPassword, fbSignOut, doc, setDoc, getDoc, collection, getDocs, updateDoc, query, where, orderBy, serverTimestamp, onSnapshot };
 
-/* ─── PAINT ─── */
-function paint(list){
-  const q = document.getElementById('srchInput').value.toLowerCase();
-  const f = q ? list.filter(a=>(a.title||'').toLowerCase().includes(q)||(a.description||'').toLowerCase().includes(q)) : list;
-  document.getElementById('secCount').textContent = `${f.length} خبر`;
-  document.getElementById('secTitle').textContent = CATS[cat].ar;
-  if(!f.length){ document.getElementById('content').innerHTML=empty('لا توجد نتائج','🔍'); return; }
-
-  const badge = CATS[cat].badge;
-  const icon  = CATS[cat].icon;
-  const label = CATS[cat].ar;
-
-  let html = '';
-
-  // ── ZONE A: Hero ──
-  if(f.length >= 1){
-    const main = f[0];
-    const s1   = f[1]||null;
-    const s2   = f[2]||null;
-    html += `<div class="zone-hero">`;
-    html += heroMain(main, badge, label);
-    html += `<div class="hero-side-col">`;
-    if(s1) html += heroSide(s1, badge, label);
-    if(s2) html += heroSide(s2, badge, label);
-    html += `</div></div>`;
+// ── Auth State ──
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    window._currentUser = user;
+    updateNavForUser(user);
+    const isAdmin = user.email === ADMIN_EMAIL;
+    if (isAdmin) {
+      showPage('admin');
+      await loadAdminData();
+    } else {
+      const snap = await getDoc(doc(db, 'users', user.uid));
+      if (snap.exists()) {
+        window._userProfile = snap.data();
+        if (window.location.hash !== '#edit') showPage('dashboard');
+        loadDashboard(snap.data(), user);
+      } else {
+        showPage('dashboard');
+        loadDashboard(null, user);
+      }
+    }
+    loadApprovedProfiles();
+  } else {
+    window._currentUser = null;
+    window._userProfile = null;
+    resetNav();
+    loadApprovedProfiles();
   }
+});
 
-  // ── AD after hero ──
-  html += adSlot();
+// ── Nav updates ──
+function updateNavForUser(user) {
+  const area = document.getElementById('nav-user-area');
+  const isAdmin = user.email === ADMIN_EMAIL;
+  area.innerHTML = `
+    <span style="color:var(--text-muted);font-size:14px;">${isAdmin ? '🛡️ المشرف' : '👤 ' + (user.displayName || user.email.split('@')[0])}</span>
+    ${isAdmin ? `<button class="btn-gold btn-sm" onclick="showPage('admin')">لوحة التحكم</button>` : `<button class="btn-gold btn-sm" onclick="showPage('dashboard')">ملفي</button>`}
+    <button class="btn-ghost btn-sm" onclick="signOut()">خروج</button>
+  `;
+}
 
-  // ── ZONE B: Row list (items 3–8) ──
-  const rowItems = f.slice(3,9);
-  if(rowItems.length){
-    html += sdiv(icon+' '+label+' — أحدث الأخبار');
-    html += `<div class="zone-b"><div class="row-list">`;
-    rowItems.forEach(a => { html += rowCard(a, badge, label); });
-    html += `</div></div>`;
+function resetNav() {
+  document.getElementById('nav-user-area').innerHTML = `
+    <button class="btn-ghost" onclick="openModal('login')">تسجيل الدخول</button>
+    <button class="btn-gold" onclick="openModal('register')">انضم مجاناً</button>
+  `;
+}
+
+// ── Load Profiles ──
+async function loadApprovedProfiles() {
+  const grid = document.getElementById('profilesGrid');
+  try {
+    const q = query(collection(db, 'users'), where('status', '==', 'approved'));
+    const snap = await getDocs(q);
+    const profiles = [];
+    snap.forEach(d => profiles.push({ id: d.id, ...d.data() }));
+
+    if (profiles.length === 0) {
+      grid.innerHTML = renderDemoProfiles();
+      return;
+    }
+    window._allProfiles = profiles;
+    window._currentFilter = 'all';
+    renderProfileCards(profiles);
+  } catch(e) {
+    grid.innerHTML = renderDemoProfiles();
   }
+}
 
-  // ── AD between zones ──
-  html += adSlot();
-
-  // ── ZONE C: 3-col grid (items 9–17) ──
-  const gridItems = f.slice(9,18);
-  if(gridItems.length){
-    html += sdiv('📰 المزيد من الأخبار');
-    html += `<div class="zone-c"><div class="grid3">`;
-    gridItems.forEach(a => { html += g3Card(a, badge, label); });
-    html += `</div></div>`;
+function renderProfileCards(profiles) {
+  const grid = document.getElementById('profilesGrid');
+  const filter = window._currentFilter || 'all';
+  const filtered = filter === 'all' ? profiles : profiles.filter(p => p.gender === filter);
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🔍</div><p>لا توجد ملفات في هذه الفئة حالياً</p></div>';
+    return;
   }
-
-  // ── AD ──
-  html += adSlot();
-
-  // ── ZONE D: Wide cards (items 18+) ──
-  const wideItems = f.slice(18);
-  if(wideItems.length){
-    html += sdiv('🔎 أخبار إضافية');
-    wideItems.forEach((a,i) => {
-      html += wideCard(a, badge, label);
-      if((i+1)%4===0) html += adSlot();
-    });
-  }
-
-  document.getElementById('content').innerHTML = html;
-  execAdScripts();
-}
-
-/* ─── CARD BUILDERS ─── */
-function heroMain(a,badge,label){
-  const k=key(a);
-  const img = a.image
-    ? `<img src="${x(a.image)}" alt="" loading="eager" onerror="this.outerHTML='<div class=no-img-hero>📰</div>'">`
-    : `<div class="no-img-hero">📰</div>`;
-  return `<div class="hero-main" onclick="openR('${k}')">
-    ${img}
-    <div class="overlay"></div>
-    <div class="body">
-      <span class="cat-tag ${badge}">${label}</span>
-      <h2>${x(a.title||'')}</h2>
-      <div class="meta"><span class="src">${x(a.source?.name||'')}</span><span>🕐 ${ago(a.publishedAt)}</span></div>
-    </div>
-  </div>`;
-}
-
-function heroSide(a,badge,label){
-  const k=key(a);
-  const img = a.image
-    ? `<img src="${x(a.image)}" alt="" loading="lazy" onerror="this.outerHTML=''">`
-    : '';
-  return `<div class="hero-side" onclick="openR('${k}')">
-    ${img}
-    <div class="overlay"></div>
-    <div class="body">
-      <span class="cat-tag ${badge}">${label}</span>
-      <h3>${x(a.title||'')}</h3>
-      <div class="meta">${x(a.source?.name||'')} · ${ago(a.publishedAt)}</div>
-    </div>
-  </div>`;
-}
-
-function rowCard(a,badge,label){
-  const k=key(a);
-  const img = a.image
-    ? `<img class="row-card-img" src="${x(a.image)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=row-card-nimg>📰</div>'">`
-    : `<div class="row-card-nimg">📰</div>`;
-  return `<div class="row-card" onclick="openR('${k}')">
-    ${img}
-    <div class="row-card-body">
-      <span class="row-card-tag ${badge}">${label}</span>
-      <div class="row-card-title">${x(a.title||'')}</div>
-      <div class="row-card-meta"><span class="row-src">${x(a.source?.name||'')}</span><span>🕐 ${ago(a.publishedAt)}</span></div>
-    </div>
-  </div>`;
-}
-
-function g3Card(a,badge,label){
-  const k=key(a);
-  const img = a.image
-    ? `<img class="g3-img" src="${x(a.image)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=g3-nimg>📰</div>'">`
-    : `<div class="g3-nimg">📰</div>`;
-  return `<div class="g3-card" onclick="openR('${k}')">
-    ${img}
-    <div class="g3-body">
-      <span class="g3-tag ${badge}">${label}</span>
-      <div class="g3-title">${x(a.title||'')}</div>
-      <div class="g3-meta"><span class="g3-src">${x(a.source?.name||'')}</span><span>🕐 ${ago(a.publishedAt)}</span></div>
-    </div>
-  </div>`;
-}
-
-function wideCard(a,badge,label){
-  const k=key(a);
-  const img = a.image
-    ? `<img class="wide-img" src="${x(a.image)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=wide-nimg>📰</div>'">`
-    : `<div class="wide-nimg">📰</div>`;
-  return `<div class="wide-card" onclick="openR('${k}')">
-    ${img}
-    <div class="wide-body">
-      <span class="wide-tag ${badge}">${label}</span>
-      <div class="wide-title">${x(a.title||'')}</div>
-      <div class="wide-desc">${x(a.description||'')}</div>
-      <div class="wide-meta"><span class="wide-src">${x(a.source?.name||'')}</span><span>🕐 ${ago(a.publishedAt)}</span></div>
-    </div>
-  </div>`;
-}
-
-function sdiv(t){
-  return `<div class="sdiv"><div class="sdiv-bar"></div><div class="sdiv-title">${t}</div><div class="sdiv-line"></div></div>`;
-}
-
-function adSlot(){
-  return `<div class="ad-slot">
-    <div id="container-bc0c78487cf2df696114bf93daa4c89b-${Math.random().toString(36).slice(2,8)}">
-      <script data-adsterra async data-cfasync="false" src="https://pl29077059.profitablecpmratenetwork.com/bc0c78487cf2df696114bf93daa4c89b/invoke.js"><\/script>
-    </div>
-  </div>`;
-}
-
-function execAdScripts(){
-  document.querySelectorAll('script[data-adsterra]').forEach(old=>{
-    const ns=document.createElement('script');
-    ns.src=old.src; ns.async=true; ns.setAttribute('data-cfasync','false');
-    old.replaceWith(ns);
-  });
-}
-
-function empty(msg,ico){
-  return `<div style="text-align:center;padding:70px 20px">
-    <div style="font-size:48px;opacity:.3;margin-bottom:14px">${ico}</div>
-    <h3 style="font-size:16px;margin-bottom:8px">${msg}</h3>
-    <p style="font-size:12px;color:var(--muted)">حاول مرة أخرى أو اختر فئة مختلفة</p>
-  </div>`;
-}
-
-/* ─── READER ─── */
-function openR(k){
-  const a=S[k]; if(!a) return;
-  document.getElementById('rTitle').textContent=a.title||'';
-  document.getElementById('rLink').href=a.url||'#';
-  document.getElementById('rLoading').style.display='flex';
-  document.getElementById('rFrame').src='';
-  document.getElementById('reader').classList.add('open');
-  document.body.style.overflow='hidden';
-  setTimeout(()=>{ document.getElementById('rFrame').src=a.url||''; },80);
-}
-function rLoaded(){ document.getElementById('rLoading').style.display='none'; }
-function rError(){
-  document.getElementById('rLoading').innerHTML=`
-    <div style="text-align:center;padding:20px">
-      <div style="font-size:38px;margin-bottom:10px">🔒</div>
-      <p style="color:var(--muted);font-size:12px;margin-bottom:12px">هذا الموقع لا يسمح بالعرض المدمج</p>
-      <a href="${document.getElementById('rLink').href}" target="_blank"
-        style="background:var(--red);color:#fff;padding:9px 18px;border-radius:8px;text-decoration:none;font-size:13px">
-        فتح في تبويب جديد ↗
-      </a>
-    </div>`;
-}
-function closeReader(){
-  document.getElementById('reader').classList.remove('open');
-  document.getElementById('rFrame').src='';
-  document.body.style.overflow='';
-}
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeReader(); });
-document.getElementById('reader').addEventListener('click',e=>{ if(e.target===document.getElementById('reader')) closeReader(); });
-
-/* ─── CONTROLS ─── */
-function onCat(btn){
-  document.querySelectorAll('.cat').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on'); cat=btn.dataset.cat; load();
-}
-function onLang(l){
-  lang=l; document.documentElement.lang=l;
-  document.documentElement.dir=l==='ar'?'rtl':'ltr'; load();
-}
-function onSearch(){ paint(arts); }
-
-/* ─── TICKER ─── */
-function ticker(){
-  const h=arts.slice(0,10).map(a=>a.title||'').filter(Boolean);
-  if(!h.length) return;
-  document.getElementById('tickerRun').innerHTML=h.map(t=>`<span>${x(t)}</span>`).join('');
-}
-
-/* ─── LOADING ─── */
-function setLoading(on){
-  document.getElementById('refBtn').classList.toggle('spinning',on);
-  if(on) document.getElementById('content').innerHTML=`
-    <div class="skel-hero">
-      <div class="skel-block" style="height:380px;border-radius:10px 0 0 10px"></div>
-      <div style="display:flex;flex-direction:column;gap:3px">
-        <div class="skel-block" style="flex:1;border-radius:0"></div>
-        <div class="skel-block" style="flex:1;border-radius:0 10px 10px 0"></div>
+  grid.innerHTML = filtered.map(p => `
+    <div class="profile-card">
+      <div class="profile-top">
+        <span class="profile-verified">✓ موثّق</span>
+        <div class="profile-avatar">${p.gender === 'female' ? '👩' : '👨'}</div>
+        <div class="profile-name">${p.name || 'عضو'}</div>
+        <div class="profile-age-city">${p.age ? p.age + ' عاماً' : ''} ${p.city ? '· ' + p.city : ''}</div>
+      </div>
+      <div class="profile-body">
+        <div class="profile-tags">${(p.tags || []).map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        <p class="profile-bio">${p.bio || 'لم تتم إضافة نبذة بعد.'}</p>
+        <button class="profile-action" onclick="openModal('contact')">تواصل بأدب 💬</button>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:3px;margin-top:3px">
-      ${Array(5).fill(`<div class="skel-block" style="height:82px;border-radius:5px"></div>`).join('')}
-    </div>`;
+  `).join('');
 }
 
-/* ─── TOAST ─── */
-function showToast(m){
-  const t=document.getElementById('toast');
-  t.textContent=m; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3500);
+window._renderProfileCards = renderProfileCards;
+
+// ── Demo profiles fallback ──
+function renderDemoProfiles() {
+  const demos = [
+    { gender:'male', name:'عبدالرحمن م.', age:28, city:'جدة', tags:['مهندس','ملتزم'], bio:'طالب علم شرعي، أبحث عن زوجة صالحة تعيننا على طاعة الله.' },
+    { gender:'female', name:'أم كلثوم ع.', age:24, city:'القاهرة', tags:['طبيبة','محجبة'], bio:'أبحث عن شريك دين وخلق قبل أي شيء آخر.' },
+    { gender:'male', name:'إبراهيم س.', age:33, city:'دبي', tags:['مبرمج','هادئ الطبع'], bio:'ابحث عن زوجة متزنة هادئة تبني معي بيتاً ساكناً.' },
+  ];
+  return demos.map(p => `
+    <div class="profile-card">
+      <div class="profile-top">
+        <span class="profile-verified">✓ موثّق</span>
+        <div class="profile-avatar">${p.gender==='female'?'👩':'👨'}</div>
+        <div class="profile-name">${p.name}</div>
+        <div class="profile-age-city">${p.age} عاماً · ${p.city}</div>
+      </div>
+      <div class="profile-body">
+        <div class="profile-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        <p class="profile-bio">${p.bio}</p>
+        <button class="profile-action" onclick="openModal('contact')">تواصل بأدب 💬</button>
+      </div>
+    </div>
+  `).join('');
 }
 
-/* ─── HELPERS ─── */
-function key(a){ const k=Math.random().toString(36).slice(2,10); S[k]=a; return k; }
-function x(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function ago(d){
-  if(!d) return '';
-  const s=(Date.now()-new Date(d))/1000;
-  if(s<60) return 'الآن';
-  if(s<3600) return `${Math.floor(s/60)} د`;
-  if(s<86400) return `${Math.floor(s/3600)} س`;
-  return `${Math.floor(s/86400)} ي`;
+// ── Dashboard ──
+function loadDashboard(profile, user) {
+  document.getElementById('dash-email').textContent = user.email;
+  document.getElementById('dash-joined').textContent = 'انضم في: ' + new Date(user.metadata.creationTime).toLocaleDateString('ar-EG');
+
+  if (!profile) {
+    document.getElementById('dash-name').textContent = 'مرحباً!';
+    document.getElementById('dash-avatar').textContent = '👤';
+    document.getElementById('dash-profile-preview').innerHTML = '<p style="color:var(--text-muted)">لم تُكمل ملفك الشخصي بعد.</p>';
+    document.getElementById('dash-pending-notice').style.display = 'block';
+    setStatusBadge('pending');
+    return;
+  }
+
+  document.getElementById('dash-name').textContent = profile.name || 'عضو كريم';
+  document.getElementById('dash-avatar').textContent = profile.gender === 'female' ? '👩' : '👨';
+  document.getElementById('dc-views').textContent = profile.views || 0;
+  document.getElementById('dc-interests').textContent = profile.interests || 0;
+  document.getElementById('dc-sent').textContent = profile.sent || 0;
+
+  setStatusBadge(profile.status || 'pending');
+
+  if (profile.status === 'pending') {
+    document.getElementById('dash-pending-notice').style.display = 'block';
+  }
+
+  document.getElementById('dash-profile-preview').innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:14px;">
+      <div><span style="color:var(--text-muted)">العمر:</span> ${profile.age || '—'}</div>
+      <div><span style="color:var(--text-muted)">المدينة:</span> ${profile.city || '—'}</div>
+      <div><span style="color:var(--text-muted)">الدولة:</span> ${profile.country || '—'}</div>
+      <div><span style="color:var(--text-muted)">المهنة:</span> ${profile.job || '—'}</div>
+      <div style="grid-column:1/-1"><span style="color:var(--text-muted)">النبذة:</span> ${profile.bio || '—'}</div>
+    </div>
+  `;
 }
+
+function setStatusBadge(status) {
+  const el = document.getElementById('dash-status-badge');
+  if (status === 'approved') { el.className = 'status-badge status-approved'; el.textContent = '✅ ملف معتمد'; }
+  else if (status === 'rejected') { el.className = 'status-badge status-rejected'; el.textContent = '❌ ملف مرفوض'; }
+  else { el.className = 'status-badge status-pending'; el.textContent = '⏳ قيد المراجعة'; }
+}
+
+// ── Save Profile ──
+window.saveProfile = async function() {
+  const user = window._currentUser;
+  if (!user) { showToast('يرجى تسجيل الدخول أولاً', 'error'); return; }
+  const name = document.getElementById('ep-name').value.trim();
+  const age = document.getElementById('ep-age').value;
+  const gender = document.getElementById('ep-gender').value;
+  const city = document.getElementById('ep-city').value.trim();
+  const country = document.getElementById('ep-country').value;
+  const job = document.getElementById('ep-job').value.trim();
+  const edu = document.getElementById('ep-edu').value;
+  const status_social = document.getElementById('ep-status').value;
+  const bio = document.getElementById('ep-bio').value.trim();
+  const tagsRaw = document.getElementById('ep-tags').value;
+  const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+
+  if (!name || !age || !gender) { showToast('يرجى ملء الاسم والعمر والجنس على الأقل', 'error'); return; }
+
+  try {
+    const profileData = { name, age: parseInt(age), gender, city, country, job, edu, status_social, bio, tags, email: user.email, status: window._userProfile?.status || 'pending', updatedAt: serverTimestamp() };
+    if (!window._userProfile) { profileData.createdAt = serverTimestamp(); profileData.views = 0; profileData.interests = 0; profileData.sent = 0; }
+    await setDoc(doc(db, 'users', user.uid), profileData, { merge: true });
+    window._userProfile = { ...window._userProfile, ...profileData };
+    showToast('تم حفظ ملفك بنجاح ✅', 'success');
+    loadDashboard(window._userProfile, user);
+    showPage('dashboard');
+  } catch(e) {
+    showToast('حدث خطأ: ' + e.message, 'error');
+  }
+};
+
+// ── Load edit form ──
+window.loadEditForm = function() {
+  const p = window._userProfile;
+  if (!p) return;
+  document.getElementById('ep-name').value = p.name || '';
+  document.getElementById('ep-age').value = p.age || '';
+  document.getElementById('ep-gender').value = p.gender || '';
+  document.getElementById('ep-city').value = p.city || '';
+  document.getElementById('ep-country').value = p.country || '';
+  document.getElementById('ep-job').value = p.job || '';
+  document.getElementById('ep-edu').value = p.edu || '';
+  document.getElementById('ep-status').value = p.status_social || '';
+  document.getElementById('ep-bio').value = p.bio || '';
+  document.getElementById('ep-tags').value = (p.tags || []).join(', ');
+};
+
+// ── ADMIN ──
+async function loadAdminData() {
+  try {
+    const snap = await getDocs(collection(db, 'users'));
+    const all = [];
+    snap.forEach(d => all.push({ id: d.id, ...d.data() }));
+    window._adminUsers = all;
+
+    const total = all.length;
+    const pending = all.filter(u => u.status === 'pending' || !u.status).length;
+    const approved = all.filter(u => u.status === 'approved').length;
+    const rejected = all.filter(u => u.status === 'rejected').length;
+
+    document.getElementById('as-total').textContent = total;
+    document.getElementById('as-pending').textContent = pending;
+    document.getElementById('as-approved').textContent = approved;
+    document.getElementById('as-rejected').textContent = rejected;
+
+    renderAdminList('pending', all.filter(u => u.status === 'pending' || !u.status));
+    renderAdminList('approved', all.filter(u => u.status === 'approved'));
+    renderAdminList('rejected', all.filter(u => u.status === 'rejected'));
+    renderAdminList('all', all);
+  } catch(e) {
+    console.error(e);
+  }
+}
+
+function renderAdminList(type, users) {
+  const el = document.getElementById('list-' + type);
+  if (!users.length) {
+    el.innerHTML = '<div class="empty-state"><div class="empty-state-icon">✨</div><p>لا يوجد سجلات هنا</p></div>';
+    return;
+  }
+  el.innerHTML = users.map(u => `
+    <div class="member-row" id="row-${u.id}">
+      <div class="member-avatar">${u.gender === 'female' ? '👩' : '👨'}</div>
+      <div class="member-info">
+        <div class="member-name">${u.name || 'بدون اسم'}</div>
+        <div class="member-meta">${u.email || ''} · ${u.age ? u.age + ' عاماً' : ''} · ${u.country || ''} · ${u.job || ''}</div>
+        <div class="member-meta" style="margin-top:4px;font-style:italic;">${u.bio ? u.bio.substring(0,80) + '...' : 'لا توجد نبذة'}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="status-badge ${u.status === 'approved' ? 'status-approved' : u.status === 'rejected' ? 'status-rejected' : 'status-pending'}" style="font-size:11px;">
+          ${u.status === 'approved' ? '✅ معتمد' : u.status === 'rejected' ? '❌ مرفوض' : '⏳ انتظار'}
+        </span>
+      </div>
+      <div class="member-actions">
+        ${u.status !== 'approved' ? `<button class="btn-approve" onclick="adminAction('${u.id}','approved')">✅ اعتماد</button>` : ''}
+        ${u.status !== 'rejected' ? `<button class="btn-reject" onclick="adminAction('${u.id}','rejected')">❌ رفض</button>` : ''}
+        ${u.status !== 'pending' ? `<button class="btn-ghost btn-sm" onclick="adminAction('${u.id}','pending')">↩ إعادة</button>` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+window.adminAction = async function(uid, newStatus) {
+  try {
+    await updateDoc(doc(db, 'users', uid), { status: newStatus, reviewedAt: serverTimestamp() });
+    showToast(newStatus === 'approved' ? '✅ تم اعتماد الملف' : newStatus === 'rejected' ? '❌ تم رفض الملف' : '↩ تم إعادة الملف للانتظار', newStatus === 'approved' ? 'success' : 'error');
+    await loadAdminData();
+  } catch(e) {
+    showToast('خطأ: ' + e.message, 'error');
+  }
+};
+
+// ── REGISTER ──
+window.doRegister = async function(name, email, password) {
+  if (!name || !email || !password) { showToast('يرجى ملء جميع الحقول', 'error'); return; }
+  if (password.length < 6) { showToast('كلمة المرور 6 أحرف على الأقل', 'error'); return; }
+  try {
+    const cred = await createUserWithEmailAndPassword(auth, email, password);
+    await setDoc(doc(db, 'users', cred.user.uid), { name, email, status: 'pending', createdAt: serverTimestamp(), views: 0, interests: 0, sent: 0 });
+    closeModal();
+    showToast('مرحباً بك في نكاح! 🎉 أكمل ملفك الآن.', 'success');
+  } catch(e) {
+    const msgs = { 'auth/email-already-in-use': 'هذا البريد مسجّل مسبقاً', 'auth/invalid-email': 'بريد إلكتروني غير صحيح', 'auth/weak-password': 'كلمة المرور ضعيفة جداً' };
+    showToast(msgs[e.code] || e.message, 'error');
+  }
+};
+
+// ── LOGIN ──
+window.doLogin = async function(email, password) {
+  if (!email || !password) { showToast('يرجى إدخال البريد وكلمة المرور', 'error'); return; }
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    closeModal();
+    showToast('مرحباً بعودتك 🌙', 'success');
+  } catch(e) {
+    const msgs = { 'auth/user-not-found': 'لا يوجد حساب بهذا البريد', 'auth/wrong-password': 'كلمة المرور غير صحيحة', 'auth/invalid-credential': 'بيانات الدخول غير صحيحة' };
+    showToast(msgs[e.code] || 'خطأ في تسجيل الدخول', 'error');
+  }
+};
+
+// ── SIGN OUT ──
+window.signOut = async function() {
+  await fbSignOut(auth);
+  showPage('home');
+  showToast('تم تسجيل الخروج بنجاح', 'success');
+};
+
+window._loadAdminData = loadAdminData;
+window._loadDashboard = loadDashboard;
+
+</script>
+
+<!-- ══════════════ UI SCRIPT ══════════════ -->
+<script>
+// ── PAGES ──
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const el = document.getElementById('page-' + name);
+  if (el) {
+    el.classList.add('active');
+    window.scrollTo(0,0);
+  }
+  if (name === 'edit-profile' && window.loadEditForm) window.loadEditForm();
+}
+window.showPage = showPage;
+
+// ── SCROLL ──
+function smoothScroll(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior:'smooth' });
+}
+window.smoothScroll = smoothScroll;
+
+// ── FILTER PROFILES ──
+function filterProfiles(f, el) {
+  window._currentFilter = f;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  if (window._allProfiles) window._renderProfileCards(window._allProfiles);
+}
+window.filterProfiles = filterProfiles;
+
+// ── ADMIN TABS ──
+function switchAdminTab(name, el) {
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.admin-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('admin-' + name).classList.add('active');
+}
+window.switchAdminTab = switchAdminTab;
+
+// ── MODAL CONTENTS ──
+const modalContents = {
+  login: () => `
+    <div class="modal-icon">🌙</div>
+    <h2 class="modal-title">مرحباً بعودتك</h2>
+    <p class="modal-sub">سجّل دخولك لاستكمال رحلة البحث</p>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <input class="form-input" type="email" placeholder="البريد الإلكتروني" id="m-login-email">
+      <input class="form-input" type="password" placeholder="كلمة المرور" id="m-login-pass">
+      <button class="btn-gold" style="padding:14px;font-size:16px;font-family:Tajawal,sans-serif;border-radius:10px;" onclick="doLogin(document.getElementById('m-login-email').value, document.getElementById('m-login-pass').value)">دخول 🌙</button>
+      <p style="font-size:13px;color:var(--text-muted);text-align:center;">ليس لديك حساب؟ <a href="#" style="color:var(--gold)" onclick="openModal('register')">سجّل الآن</a></p>
+    </div>
+  `,
+  register: () => `
+    <div class="modal-icon">✨</div>
+    <h2 class="modal-title">انضم إلى نكاح</h2>
+    <p class="modal-sub">أنشئ ملفك الآن وابدأ رحلتك نحو الزواج الحلال</p>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <input class="form-input" type="text" placeholder="اسمك الكريم" id="m-reg-name">
+      <input class="form-input" type="email" placeholder="بريدك الإلكتروني" id="m-reg-email">
+      <input class="form-input" type="password" placeholder="كلمة المرور (6 أحرف+)" id="m-reg-pass">
+      <div class="checkbox-group">
+        <input type="checkbox" id="m-terms">
+        <label for="m-terms" style="font-size:13px;color:var(--text-muted);">أوافق على <a href="#" style="color:var(--gold)">شروط الاستخدام</a> والالتزام بآداب الإسلام.</label>
+      </div>
+      <button class="btn-gold" style="padding:14px;font-size:16px;font-family:Tajawal,sans-serif;border-radius:10px;" onclick="if(!document.getElementById('m-terms').checked){showToast('يرجى الموافقة على الشروط','error');return;} doRegister(document.getElementById('m-reg-name').value, document.getElementById('m-reg-email').value, document.getElementById('m-reg-pass').value)">إنشاء الحساب 🌟</button>
+      <p style="font-size:13px;color:var(--text-muted);text-align:center;">لديك حساب؟ <a href="#" style="color:var(--gold)" onclick="openModal('login')">سجّل الدخول</a></p>
+    </div>
+  `,
+  contact: () => `
+    <div class="modal-icon">💬</div>
+    <h2 class="modal-title">التواصل المحترم</h2>
+    <p class="modal-sub">للتواصل مع هذا الملف يجب أن تكون عضواً موثّقاً. التواصل يتم تحت إشراف شرعي لضمان الاحترام المتبادل.</p>
+    <button class="btn-gold" style="width:100%;padding:14px;font-size:16px;font-family:Tajawal,sans-serif;border-radius:10px;margin-top:8px;" onclick="openModal('register')">سجّل للتواصل 🌙</button>
+  `
+};
+
+function openModal(type) {
+  const fn = modalContents[type];
+  document.getElementById('modal-content').innerHTML = fn ? fn() : '';
+  document.getElementById('modal').classList.add('open');
+}
+window.openModal = openModal;
+
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+window.closeModal = closeModal;
+
+function closeModalOutside(e) { if (e.target.id === 'modal') closeModal(); }
+window.closeModalOutside = closeModalOutside;
+
+// ── TOAST ──
+function showToast(msg, type = '') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast' + (type ? ' ' + type : '');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3200);
+}
+window.showToast = showToast;
+
+// ── CTA REGISTER ──
+window.registerFromCTA = function() {
+  const name = document.getElementById('reg-name').value;
+  const email = document.getElementById('reg-email2').value;
+  const pass = document.getElementById('reg-pass2').value;
+  const terms = document.getElementById('terms2').checked;
+  if (!terms) { showToast('يرجى الموافقة على الشروط ⚠️', 'error'); return; }
+  window.doRegister(name, email, pass);
+};
 </script>
 </body>
 </html>
