@@ -79,14 +79,27 @@ nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(13,27,42,.97);ba
 .filter-select:focus{border-color:var(--gold);color:var(--text);}
 
 /* profiles grid */
-.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:32px 20px;padding-bottom:16px;}
 
 /* ─ profile card ─ */
-.pcard{background:var(--surface);border:1px solid rgba(201,168,76,.12);border-radius:18px;overflow:hidden;transition:all .4s;position:relative;}
-.pcard:hover{transform:translateY(-5px);border-color:rgba(201,168,76,.35);box-shadow:0 20px 40px rgba(0,0,0,.3);}
-.pcard-top{background:linear-gradient(135deg,var(--surface2),#243450);padding:28px;text-align:center;position:relative;}
-.pcard-avatar{width:76px;height:76px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 12px;border:3px solid rgba(201,168,76,.3);overflow:hidden;}
+.pcard{background:var(--surface);border:1px solid rgba(201,168,76,.12);border-radius:20px;overflow:visible;transition:all .4s;position:relative;}
+.pcard:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.4);box-shadow:0 24px 48px rgba(0,0,0,.35);}
+.pcard-top{background:linear-gradient(150deg,#1a2e4a,#0f1e30);padding:20px 20px 52px;text-align:center;position:relative;border-radius:20px 20px 0 0;overflow:hidden;}
+.pcard-top::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(201,168,76,.1),transparent);}
+.pcard-avatar{width:96px;height:96px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;position:absolute;bottom:-48px;left:50%;transform:translateX(-50%);border:4px solid var(--surface);box-shadow:0 8px 24px rgba(0,0,0,.4);overflow:hidden;z-index:2;}
 .pcard-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.pcard-badges{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1;}
+.pcard-name{font-size:17px;font-weight:700;margin-bottom:4px;}
+.pcard-meta{font-size:12px;color:var(--muted);}
+.badge-verified{background:rgba(91,158,108,.2);border:1px solid var(--green);color:var(--green);border-radius:50px;padding:3px 10px;font-size:11px;font-weight:700;}
+.badge-status{border-radius:50px;padding:3px 10px;font-size:10px;font-weight:700;}
+.badge-azab{background:rgba(74,143,168,.15);border:1px solid var(--blue);color:var(--blue);}
+.badge-motalaq{background:rgba(201,168,76,.15);border:1px solid var(--gold);color:var(--gold);}
+.badge-armil{background:rgba(91,158,108,.15);border:1px solid var(--green);color:var(--green);}
+.pcard-body{padding:60px 18px 18px;text-align:center;}
+.ptags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;justify-content:center;}
+.ptag{padding:3px 10px;border-radius:50px;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.18);font-size:11px;color:var(--muted);}
+.pbio{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px;}
 .photo-upload-area{display:flex;flex-direction:column;align-items:center;gap:14px;padding:20px;background:rgba(201,168,76,.04);border:2px dashed rgba(201,168,76,.25);border-radius:14px;cursor:pointer;transition:all .3s;margin-bottom:4px;}
 .photo-upload-area:hover{border-color:var(--gold);background:rgba(201,168,76,.08);}
 .photo-preview{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));display:flex;align-items:center;justify-content:center;font-size:38px;overflow:hidden;border:3px solid rgba(201,168,76,.4);}
@@ -96,17 +109,6 @@ nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(13,27,42,.97);ba
 .dash-av-wrap{position:relative;display:inline-block;cursor:pointer;}
 .dash-av-wrap:hover .dash-av-edit{opacity:1;}
 .dash-av-edit{position:absolute;inset:0;border-radius:50%;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;transition:opacity .3s;}
-.pcard-name{font-size:17px;font-weight:700;margin-bottom:3px;}
-.pcard-meta{font-size:12px;color:var(--muted);}
-.badge-verified{position:absolute;top:14px;left:14px;background:rgba(91,158,108,.2);border:1px solid var(--green);color:var(--green);border-radius:50px;padding:3px 10px;font-size:11px;font-weight:700;}
-.badge-status{position:absolute;top:14px;right:14px;border-radius:50px;padding:3px 10px;font-size:10px;font-weight:700;}
-.badge-azab{background:rgba(74,143,168,.15);border:1px solid var(--blue);color:var(--blue);}
-.badge-motalaq{background:rgba(201,168,76,.15);border:1px solid var(--gold);color:var(--gold);}
-.badge-armil{background:rgba(91,158,108,.15);border:1px solid var(--green);color:var(--green);}
-.pcard-body{padding:18px;}
-.ptags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
-.ptag{padding:3px 10px;border-radius:50px;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.18);font-size:11px;color:var(--muted);}
-.pbio{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px;}
 
 /* BLUR OVERLAY for guests */
 .pcard-blur .pcard-body{position:relative;}
@@ -454,7 +456,8 @@ footer{border-top:1px solid rgba(201,168,76,.12);padding:44px 0 20px;text-align:
     <div class="footer-logo">🌙 نِكَاح</div>
     <p class="footer-ayah">﴿ وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</p>
     <div class="footer-links"><a onclick="sp('home')">الرئيسية</a><a onclick="sp('privacy')">سياسة الخصوصية</a><a onclick="sp('terms')">شروط الاستخدام</a><a onclick="om('contact')">اتصل بنا</a></div>
-    <p class="footer-copy">جميع الحقوق محفوظة © 2025 منصة نكاح للزواج الإسلامي</p>
+    <p class="footer-copy">جميع الحقوق محفوظة © 2026 منصة نكاح للزواج الإسلامي</p>
+    <p style="font-size:11px;color:rgba(168,152,120,.25);margin-top:6px;">Crafted with ❤️ by <a href="https://github.com/younesouakka" target="_blank" style="color:rgba(201,168,76,.4);text-decoration:none;transition:color .3s;" onmouseover="this.style.color='rgba(201,168,76,.8)'" onmouseout="this.style.color='rgba(201,168,76,.4)'">Younes Ouakka</a></p>
   </div>
 </footer>
 </div><!-- /page-home -->
@@ -466,7 +469,7 @@ footer{border-top:1px solid rgba(201,168,76,.12);padding:44px 0 20px;text-align:
       <div class="orn"><span class="orn-icon">🛡️</span></div>
       <p class="s-label">قانوني</p>
       <h1 style="font-family:'Amiri',serif;font-size:clamp(28px,4vw,44px);margin-bottom:12px;">سياسة الخصوصية</h1>
-      <p style="color:var(--muted);font-size:14px;">آخر تحديث: يناير 2025</p>
+      <p style="color:var(--muted);font-size:14px;">آخر تحديث: يناير 2026</p>
     </div>
     <div style="background:var(--surface);border:1px solid rgba(201,168,76,.12);border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:32px;font-size:15px;line-height:2;">
       <div>
@@ -532,7 +535,7 @@ footer{border-top:1px solid rgba(201,168,76,.12);padding:44px 0 20px;text-align:
       <div class="orn"><span class="orn-icon">📜</span></div>
       <p class="s-label">قانوني</p>
       <h1 style="font-family:'Amiri',serif;font-size:clamp(28px,4vw,44px);margin-bottom:12px;">شروط الاستخدام</h1>
-      <p style="color:var(--muted);font-size:14px;">آخر تحديث: يناير 2025</p>
+      <p style="color:var(--muted);font-size:14px;">آخر تحديث: يناير 2026</p>
     </div>
     <div style="background:var(--surface);border:1px solid rgba(201,168,76,.12);border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:32px;font-size:15px;line-height:2;">
       <div style="background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.25);border-radius:12px;padding:20px;">
@@ -729,7 +732,7 @@ footer{border-top:1px solid rgba(201,168,76,.12);padding:44px 0 20px;text-align:
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut as fbOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, getDocs, collection, updateDoc, deleteDoc, query, where, orderBy, serverTimestamp, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc, getDocs, collection, updateDoc, deleteDoc, query, where, orderBy, serverTimestamp, addDoc, increment } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const cfg = {
   apiKey:"AIzaSyDwplTLuDe77rKur8L2CJLNuy4cXFbXbe0",
@@ -794,16 +797,65 @@ async function loadProfiles() {
   try {
     const snap = await getDocs(query(collection(db,'users'), where('status','==','approved')));
     const profiles = [];
-    snap.forEach(d => profiles.push({id:d.id,...d.data()}));
+    // load user's sent interests
+    const myInterests = window._user ? await loadMyInterests() : new Set();
+    snap.forEach(d => {
+      const data = {id:d.id,...d.data()};
+      data._interested = myInterests.has(d.id);
+      profiles.push(data);
+    });
     window._profiles = profiles;
     window._filters = {gender:'all', social:'all_s', country:'all_c'};
     renderProfiles();
+    // increment views for all approved profiles (only for logged-in non-admin)
+    if (window._user && window._user.email !== ADMIN) {
+      profiles.forEach(p => {
+        if (p.id !== window._user.uid) {
+          updateDoc(doc(db,'users',p.id), {views: increment(1)}).catch(()=>{});
+        }
+      });
+    }
   } catch(e) {
     window._profiles = demoProfiles();
     window._filters = {gender:'all', social:'all_s', country:'all_c'};
     renderProfiles();
   }
 }
+
+async function loadMyInterests() {
+  try {
+    const snap = await getDocs(query(collection(db,'interests'), where('from','==',window._user.uid)));
+    const set = new Set();
+    snap.forEach(d => set.add(d.data().to));
+    return set;
+  } catch(e) { return new Set(); }
+}
+
+window.sendInterest = async function(targetUid, btn) {
+  if (!window._user) { om('register'); return; }
+  if (targetUid === window._user.uid) { toast('لا يمكنك إرسال اهتمام لنفسك 😄','err'); return; }
+  const isInterested = btn.classList.contains('interested');
+  try {
+    const intId = window._user.uid + '_' + targetUid;
+    if (isInterested) {
+      await deleteDoc(doc(db,'interests',intId));
+      await updateDoc(doc(db,'users',targetUid), {interests: increment(-1)});
+      await updateDoc(doc(db,'users',window._user.uid), {sent: increment(-1)});
+      btn.classList.remove('interested');
+      btn.style.background = 'transparent';
+      btn.style.borderColor = 'rgba(224,92,92,.4)';
+      toast('تم إلغاء الاهتمام','');
+    } else {
+      await setDoc(doc(db,'interests',intId), {from:window._user.uid, to:targetUid, createdAt:serverTimestamp()});
+      await updateDoc(doc(db,'users',targetUid), {interests: increment(1)});
+      await updateDoc(doc(db,'users',window._user.uid), {sent: increment(1)});
+      btn.classList.add('interested');
+      btn.style.background = 'rgba(224,92,92,.15)';
+      btn.style.borderColor = 'rgba(224,92,92,.7)';
+      toast('❤️ تم إرسال الاهتمام!','ok');
+    }
+  } catch(e) { toast('حدث خطأ، حاول مجدداً','err'); }
+};
 
 function renderProfiles() {
   const grid = document.getElementById('profilesGrid');
@@ -832,27 +884,36 @@ function renderProfiles() {
     if (isLoggedIn) {
       return `<div class="pcard">
         <div class="pcard-top">
-          <span class="badge-verified">✓ موثّق</span>
-          ${socialBadge}
+          <div class="pcard-badges">
+            <span class="badge-verified">✓ موثّق</span>
+            ${socialBadge}
+          </div>
           ${avatarHtml}
-          <div class="pcard-name">${p.name||'عضو'}</div>
-          <div class="pcard-meta">${p.age?p.age+' عاماً':''} ${p.city?'· '+p.city:''} ${p.country?'· '+p.country:''}</div>
         </div>
         <div class="pcard-body">
-          <div class="ptags">${tags}${p.job?`<span class="ptag">💼 ${p.job}</span>`:''}</div>
-          <p class="pbio">${p.bio||'لم تتم إضافة نبذة بعد.'}</p>
-          <button class="btn-gold" style="width:100%;padding:9px;font-size:13px;" onclick="om('contact')">تواصل بأدب 💬</button>
+          <div class="pcard-name">${p.name||'عضو'}</div>
+          <div class="pcard-meta">${p.age?p.age+' عاماً':''} ${p.city?'· '+p.city:''} ${p.country?'· '+p.country:''}</div>
+          <div class="ptags" style="margin-top:12px;">${tags}${p.job?`<span class="ptag">💼 ${p.job}</span>`:''}</div>
+          <p class="pbio">${p.bio?p.bio.substring(0,90)+'...':'لم تتم إضافة نبذة بعد.'}</p>
+          <div style="display:flex;gap:8px;margin-top:4px;">
+            <button class="btn-gold" style="flex:1;padding:9px;font-size:13px;" onclick="om('contact')">تواصل 💬</button>
+            <button class="btn-interest ${p._interested?'interested':''}" id="int-${p.id}" onclick="sendInterest('${p.id}',this)" style="padding:9px 14px;border-radius:8px;border:1px solid rgba(224,92,92,.4);background:transparent;color:#E05C5C;font-size:16px;cursor:pointer;transition:all .3s;" title="أرسل اهتمام">❤️</button>
+          </div>
+          <div style="font-size:11px;color:var(--muted);margin-top:8px;text-align:center;">👁 ${p.views||0} مشاهدة</div>
         </div>
       </div>`;
     } else {
       return `<div class="pcard pcard-blur">
         <div class="pcard-top">
-          <span class="badge-verified">✓ موثّق</span>
-          ${socialBadge}
+          <div class="pcard-badges">
+            <span class="badge-verified">✓ موثّق</span>
+            ${socialBadge}
+          </div>
           ${avatarHtml}
+        </div>
+        <div class="pcard-body" style="position:relative;min-height:160px;">
           <div class="pcard-name">${p.name||'عضو'}</div>
           <div class="pcard-meta">${p.age?p.age+' عاماً':''} ${p.country?'· '+p.country:''}</div>
-        </div>
         <div class="pcard-body" style="position:relative;min-height:140px;">
           <div style="filter:blur(5px);pointer-events:none;user-select:none;">
             <div class="ptags">${tags}</div>
@@ -1072,6 +1133,17 @@ function loadDash(profile, user) {
   document.getElementById('dc-views').textContent = profile.views||0;
   document.getElementById('dc-int').textContent = profile.interests||0;
   document.getElementById('dc-sent').textContent = profile.sent||0;
+  // reload live stats
+  if (user) {
+    getDoc(doc(db,'users',user.uid)).then(s => {
+      if (s.exists()) {
+        const d = s.data();
+        document.getElementById('dc-views').textContent = d.views||0;
+        document.getElementById('dc-int').textContent = d.interests||0;
+        document.getElementById('dc-sent').textContent = d.sent||0;
+      }
+    }).catch(()=>{});
+  }
   const s=profile.status||'pending';
   const badge=document.getElementById('d-sbadge');
   badge.className='sbadge '+(s==='approved'?'sb-approved':s==='rejected'?'sb-rejected':'sb-pending');
